@@ -1,5 +1,5 @@
 <template>
-    <div class="999">
+    <div>
         <slot />
         <!-- <NuxtWelcome /> -->
     </div>
