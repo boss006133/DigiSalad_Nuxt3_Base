@@ -1,0 +1,12 @@
+@mixin flexbox-row-center {
+    @apply flex-row items-center justify-center;
+}
+
+.homeTitle {
+    @include flexbox-row-center;
+    color: red;
+
+    h1 {
+        @apply text-2xl;
+    }
+}
