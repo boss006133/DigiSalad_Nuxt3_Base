@@ -1,12 +1,20 @@
 <template>
-    <div class="homeTitle">
-        index page
-        <h1>sdasdasd</h1>
-    </div>
-    <div class="bg-white py-24">
-        <div class="flex flex-col items-center">
-            <h1 class="text-6xl font-semibold text-blue-600">2022 iThome</h1>
-            <p class="mt-4 text-9xl font-bold text-gray-900">鐵人賽</p>
+    <div class="pageHome">
+        <div class="cateSection">
+            <div class="cateTitle">#styling by classname from scss file</div>
+            <div class="cateDes">DigiSalad Nuxt3 Base</div>
+        </div>
+        <div class="cateSection">
+            <div class="cateTitle">
+                #styling by tailwindcss classname inline directly
+            </div>
+            <div class="cateDes apply-tailwindcss">DigiSalad Nuxt3 Base</div>
+        </div>
+        <div class="cateSection">
+            <div class="cateTitle">
+                #styling by RWD(@screen xl) from scss file
+            </div>
+            <div class="cateDes apply-screen-xl">DigiSalad Nuxt3 Base</div>
         </div>
     </div>
 </template>

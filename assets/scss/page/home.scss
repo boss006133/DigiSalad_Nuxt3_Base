@@ -1,12 +1,41 @@
-@mixin flexbox-row-center {
-    @apply flex-row items-center justify-center;
+@mixin cateSection {
+    padding: 0 15px;
 }
-
-.homeTitle {
-    @include flexbox-row-center;
-    color: red;
-
-    h1 {
-        @apply text-2xl;
+@mixin cateDes {
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #ededed;
+    background-color: #f9f9f9;
+    margin: 0px 0px 20px;
+}
+@mixin cateDes-tailwind-apply {
+    @apply text-6xl font-semibold text-blue-600;
+}
+.pageHome {
+    padding: 20px 0 0 0;
+}
+.cateSection {
+    @include cateSection;
+}
+.cateTitle {
+    font-style: italic;
+    color: #a1a1a1;
+    margin-bottom: 10px;
+    padding-left: 0px;
+}
+.cateDes {
+    color: #00c6ce;
+    font-size: 25px;
+    font-family: "Courier New";
+    @include cateDes;
+}
+.apply-tailwindcss {
+    @include cateDes-tailwind-apply;
+}
+.apply-screen-xl {
+    @screen xl {
+        color: #000;
+        font-size: 22px;
+        letter-spacing: 20px;
     }
 }
