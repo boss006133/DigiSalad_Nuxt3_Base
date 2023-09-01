@@ -9,6 +9,9 @@ module.exports = {
     "./composables/**/*.{js,ts}",
     './app.{js,ts,vue}'
   ],
+  presets: [
+    require("./vender/tailwindcss/project-preset.js"),
+  ],
   theme: {
     extend: {},
   },

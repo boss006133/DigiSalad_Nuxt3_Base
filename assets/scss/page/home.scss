@@ -33,9 +33,10 @@
     @include cateDes-tailwind-apply;
 }
 .apply-screen-xl {
-    @screen xl {
+    @screen min-xl {
         color: #000;
         font-size: 22px;
         letter-spacing: 20px;
+        @apply font-en;
     }
 }
