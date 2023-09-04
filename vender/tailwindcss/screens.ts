@@ -1,15 +1,3 @@
-/**
- * Customizing screens
- * export exemple:
- * {
- *   "min-xs":{'min': '375px'},
- *   "max-xs":{'max': '374px'},
- *   "min-sm":{'min': '480px'},
- *   "max-sm":{'max': '479px'},
- *   ...
- *   ...
- * }
- */
 const defaultSettings: { [key: string]: number } = {
     "xs": 375,
     "sm": 480,
@@ -26,13 +14,44 @@ const defaultSettings: { [key: string]: number } = {
     "desktop": 1320
 }
 
-const newSettings: { [key: string]: { [key: string]: string } } = {}
+const screensTailwind: { [key: string]: { [key: string]: string } } = {}
+const screensMedia: { [key: string]: { value: string, type: string } } = {}
 for (const key in defaultSettings) {
     if (Object.prototype.hasOwnProperty.call(defaultSettings, key)) {
         const maxWidth = defaultSettings[key];
         const minWidth = defaultSettings[key] + 1;
-        newSettings[`min-${key}`] = { 'min': `${minWidth}px` }
-        newSettings[`max-${key}`] = { 'max': `${maxWidth}px` }
+        screensTailwind[`min-${key}`] = { 'min': `${minWidth}px` }
+        screensTailwind[`max-${key}`] = { 'max': `${maxWidth}px` }
+
+        const newKeyStr = key.charAt(0).toUpperCase() + key.slice(1);
+        screensMedia[`min${newKeyStr}`] = { value: `${minWidth}px`, type: 'min' }
+        screensMedia[`max${newKeyStr}`] = { value: `${maxWidth}px`, type: 'max' }
     }
 }
-export default newSettings
+
+/**
+ * Customizing screens
+ * screensTailwind export exemple:
+ * {
+ *   "min-xs":{'min': '376px'},
+ *   "max-xs":{'max': '375px'},
+ *   "min-sm":{'min': '481px'},
+ *   "max-sm":{'max': '480px'},
+ *   ...
+ *   ...
+ * }
+ */
+
+/**
+ * Customizing screens
+ * screensMedia export exemple:
+ * {
+ *   "min-xs":{'value': 376,'type': 'min'},
+ *   "max-xs":{'value': 375,'type': 'max'},
+ *   "min-sm":{'value': 481,'type': 'min'},
+ *   "max-sm":{'value': 480,'type': 'max'},
+ *   ...
+ *   ...
+ * }
+ */
+export { screensTailwind, screensMedia }

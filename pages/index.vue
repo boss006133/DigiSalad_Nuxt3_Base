@@ -16,9 +16,21 @@
             </div>
             <div class="cateDes apply-screen-xl">DigiSalad Nuxt3 Base</div>
         </div>
+        <div class="cateSection">
+            <div class="cateTitle">
+                #using useMedia(composables) to switch element to (show & hide)
+            </div>
+            <div class="cateDes">
+                min-md ({{ list.minMd }}px):{{ minMd }} <br />
+                max-md ({{ list.maxMd }}px):{{ maxMd }} <br />
+                <span v-if="maxMd" class="">DigiSalad Nuxt3 Base</span>
+            </div>
+        </div>
     </div>
 </template>
-<script setup></script>
+<script setup>
+const { maxMd, minMd, list } = useMedia();
+</script>
 <style lang="scss">
 @import "@/assets/scss/page/home";
 </style>

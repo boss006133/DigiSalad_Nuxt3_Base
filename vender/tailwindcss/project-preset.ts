@@ -1,8 +1,9 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const screens = require("./screens.ts");
+const { screensTailwind: screens } = require("./screens.ts");
 const colors = require("./colors.json");
 const fontSize = require("./fontSize.json");
 const fontFamily = require("./fontFamily.ts");
+
 
 module.exports = {
     theme: {

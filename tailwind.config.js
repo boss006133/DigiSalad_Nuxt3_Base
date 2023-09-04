@@ -10,7 +10,7 @@ module.exports = {
     './app.{js,ts,vue}'
   ],
   presets: [
-    require("./vender/tailwindcss/project-preset.js"),
+    require("./vender/tailwindcss/project-preset.ts"),
   ],
   theme: {
     extend: {},
