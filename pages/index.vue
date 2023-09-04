@@ -21,9 +21,13 @@
                 #using useMedia(composables) to switch element to (show & hide)
             </div>
             <div class="cateDes">
-                min-md ({{ list.minMd }}px):{{ minMd }} <br />
-                max-md ({{ list.maxMd }}px):{{ maxMd }} <br />
-                <span v-if="maxMd" class="">DigiSalad Nuxt3 Base</span>
+                <div class="text-black text-p2-d">
+                    min-md ({{ list.minMd }}px):{{ minMd }} <br />
+                    max-md ({{ list.maxMd }}px):{{ maxMd }} <br />
+                </div>
+                <span v-if="maxMd" class="font-serif text-orange-300">
+                    DigiSalad Nuxt3 Base
+                </span>
             </div>
         </div>
     </div>
