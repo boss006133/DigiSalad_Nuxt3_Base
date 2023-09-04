@@ -1,9 +1,10 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-export const useGlobalStore = defineStore("global", {
+export const useGlobalStore = defineStore('global', {
     state: () => ({
         global: null as any | null,
-        userName: "Steven"
+        userName: 'Steven',
+        timeNow: 0,
     }),
     getters: {
         header: (state) => state.global?.header ?? [],
@@ -15,6 +16,8 @@ export const useGlobalStore = defineStore("global", {
         async nuxtServerInit() {
             // const { data } = await useApiFetch("global/global");
             // this.global = data.value?.data ?? {};
+            const now = new Date()
+            this.timeNow = now.getTime()
         },
     },
 })

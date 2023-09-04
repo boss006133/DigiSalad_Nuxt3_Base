@@ -26,8 +26,13 @@
 .cateDes {
     color: #00c6ce;
     font-size: 25px;
-    font-family: "Courier New";
+    font-family: 'Courier New';
     @include cateDes;
+}
+.textNormal {
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
 }
 .apply-tailwindcss {
     @include cateDes-tailwind-apply;
