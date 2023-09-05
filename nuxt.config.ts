@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         // doc: https://nuxt.com/modules/robots
         '@nuxtjs/robots',
-        // doc: https://github.com/nuxt-community/device-module
+        // doc: https://nuxt.com/modules/device
         '@nuxtjs/device',
     ],
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#postcss
