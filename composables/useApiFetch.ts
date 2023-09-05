@@ -1,7 +1,9 @@
 import global from '~/api/global.json'
+import page from '~/api/page.json'
 
 const factories = {
     global,
+    page,
 } as any
 
 const nameToSetting = (name: string) => {

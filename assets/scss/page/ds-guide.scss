@@ -1,0 +1,47 @@
+@mixin cateSection {
+}
+@mixin cateDes {
+    font-family: 'Courier New';
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #f3f3f3;
+    background-color: #fdfdfd;
+    margin: 0px 0px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: black;
+}
+@mixin cateDes-tailwind-apply {
+    @apply text-6xl font-semibold text-blue-600;
+}
+.pageDsGuide {
+    padding: 20px 15px;
+}
+.cateSection {
+    @include cateSection;
+}
+.cateTitle {
+    font-style: italic;
+    color: #a1a1a1;
+    margin-bottom: 10px;
+    padding-left: 0px;
+}
+.cateDes {
+    @include cateDes;
+}
+// .textNormal {
+//     font-size: 14px;
+//     line-height: 1.5;
+//     color: black;
+// }
+.apply-tailwindcss {
+    @include cateDes-tailwind-apply;
+}
+.apply-screen-xl {
+    @screen min-xl {
+        color: #000;
+        font-size: 22px;
+        letter-spacing: 20px;
+        @apply font-en;
+    }
+}

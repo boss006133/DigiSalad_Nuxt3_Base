@@ -1,47 +1,27 @@
-@mixin cateSection {
-    padding: 0 15px;
-}
-@mixin cateDes {
-    padding: 15px 20px;
-    border-radius: 10px;
-    border: 1px solid #f3f3f3;
-    background-color: #fdfdfd;
-    margin: 0px 0px 20px;
-}
-@mixin cateDes-tailwind-apply {
-    @apply text-6xl font-semibold text-blue-600;
-}
 .pageHome {
-    padding: 20px 0 0 0;
-}
-.cateSection {
-    @include cateSection;
-}
-.cateTitle {
-    font-style: italic;
-    color: #a1a1a1;
-    margin-bottom: 10px;
-    padding-left: 0px;
-}
-.cateDes {
-    color: #00c6ce;
-    font-size: 25px;
-    font-family: 'Courier New';
-    @include cateDes;
-}
-.textNormal {
-    font-size: 16px;
-    line-height: 1.5;
-    color: black;
-}
-.apply-tailwindcss {
-    @include cateDes-tailwind-apply;
-}
-.apply-screen-xl {
-    @screen min-xl {
-        color: #000;
-        font-size: 22px;
-        letter-spacing: 20px;
-        @apply font-en;
+    padding: 20px 15px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        font-size: 40px;
+        color: #04c7cd;
+        margin-bottom: 40px;
+    }
+    .btnGuide {
+        padding: 6px 16px;
+        border-radius: 4px;
+        border: 1px solid #334155;
+        color: #334155;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.25s ease;
+        &:hover {
+            border-color: #4b5b70;
+            background-color: #4b5b70;
+            color: #fff;
+        }
     }
 }

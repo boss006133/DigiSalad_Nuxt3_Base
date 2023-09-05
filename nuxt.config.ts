@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         // apiUsername: '', // can be overridden by NUXT_API_USERNAME environment variable
         // apiPassword: '',
-        basicAuth: '999',
+        // basicAuth: '',
         // siteUrl: process.env.NUXT_PUBLIC_BASE_URL,
         public: {
             // appBuildVersion: process.env.APP_BUILD_VERSION,
