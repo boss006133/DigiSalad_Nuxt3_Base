@@ -14,8 +14,9 @@ export const useGlobalStore = defineStore('global', {
     },
     actions: {
         async nuxtServerInit() {
-            // const { data } = await useApiFetch("global/global");
-            // this.global = data.value?.data ?? {};
+            const { data } = await useApiFetch('global/global')
+            this.global = data.value?.data ?? {}
+
             const now = new Date()
             this.timeNow = now.getTime()
         },

@@ -1,0 +1,26 @@
+{
+    "text": {
+        "view_more": "View More",
+        "about": "About",
+        "scroll_to_explore": "Scroll to explore",
+        "recommend_for_you":"Recommend For You",
+        "back":"Back",
+        "search_by_keyword":"Search by keywords…"
+    },
+    "error": {
+        "title": "Oops!",
+        "desc": "We can’t seem to find the page you’re looking for.",
+        "button_text": "Back to Home"
+    },
+    "filter": {
+        "categories": "Categories",
+        "location": "Location",
+        "all": "All"
+    },
+    "cookies": {
+        "text": "This site uses cookies. Please indicate whether you agree to our use of cookies.",
+        "link":"Find out more here.",
+        "accept": "Accept",
+        "reject": "Reject"
+    }
+}

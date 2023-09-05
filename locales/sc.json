@@ -1,0 +1,26 @@
+{
+    "text": {
+        "view_more": "了解更多",
+        "about": "关于",
+        "scroll_to_explore": "滑动浏览更多",
+        "recommend_for_you":"精选推荐",
+        "back":"返回",
+        "search_by_keyword":"搜寻关键字..."
+    },
+    "error": {
+        "title": "噢！",
+        "desc": "我们无法找到您要寻找的页面。",
+        "button_text": "返回主页"
+    },
+    "filter": {
+        "categories": "类别",
+        "location": "地点",
+        "all": "全部"
+    },
+    "cookies": {
+        "text": "我们会使用cookies。请表示您是否接受我们使用cookies。",
+        "link":"按此了解更多",
+        "accept": "接受",
+        "reject": "拒绝"
+    }
+}
