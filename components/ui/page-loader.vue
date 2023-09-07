@@ -1,6 +1,6 @@
 <template>
     <!-- page loader -->
-    <div class="pageLoader">
+    <div class="pageLoader" v-if="storeGlobal.pageLoading">
         <div class="pageLoader__bg"></div>
         <div class="spinner-outer">
             <svg
@@ -20,7 +20,10 @@
         </div>
     </div>
 </template>
-<script setup></script>
+<script setup>
+import { useGlobalStore } from '~/store'
+const storeGlobal = useGlobalStore()
+</script>
 <style lang="scss" scoped>
 $offset: 220;
 $duration: 1.4s;

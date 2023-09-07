@@ -1,7 +1,13 @@
 import { defineStore } from 'pinia'
+import { action as actionIndex } from '@/constants/store/actions'
+import { CLASSNAME_PAGE_BLOCKING } from '@/constants/type/component'
 
+const defaultState = {
+    pageLoading: false,
+}
 export const useGlobalStore = defineStore('global', {
     state: () => ({
+        ...defaultState,
         global: null as any | null,
         userName: 'Steven',
         timeNow: 0,
@@ -14,11 +20,25 @@ export const useGlobalStore = defineStore('global', {
     },
     actions: {
         async nuxtServerInit() {
-            // const { data } = await useApiFetch('global/global')
-            // this.global = data.value?.data ?? {}
+            const self = this
+            if (process.client) self.pageLoading = true
+
+            const { data } = await useApiFetch('global/global')
+            self.global = data.value?.data ?? {}
 
             const now = new Date()
-            this.timeNow = now.getTime()
+            self.timeNow = now.getTime()
+
+            if (process.client) self.pageLoading = false
+        },
+        [actionIndex.SET_PAGELOADING](value: boolean) {
+            const self = this
+            self.pageLoading = value
+            if (typeof window !== 'undefined') {
+                const className = CLASSNAME_PAGE_BLOCKING
+                if (value) document.body.classList.add(className)
+                else document.body.classList.remove(className)
+            }
         },
     },
 })

@@ -2,7 +2,7 @@
     <div>
         <slot />
         <!-- <NuxtWelcome /> -->
-        <!-- <UiPageLoader /> -->
+        <UiPageLoader />
     </div>
 </template>
 <script setup>

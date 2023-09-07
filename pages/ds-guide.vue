@@ -21,11 +21,11 @@
                     >{{ colors.brand_05.value }}
                 </div>
                 <div>$config.public.baseURL: {{ $config.public?.baseURL }}</div>
-                <div>store.userName: {{ store.userName }}</div>
-                <div>store.timeNow: {{ store.timeNow }}</div>
+                <div>store.userName: {{ storeGlobal.userName }}</div>
+                <div>store.timeNow: {{ storeGlobal.timeNow }}</div>
                 <button
                     type="button"
-                    @click="store.nuxtServerInit"
+                    @click="storeGlobal.nuxtServerInit"
                     style="
                         border-radius: 5px;
                         background-color: #04c7cd;
@@ -42,7 +42,14 @@
         </div>
         <!-- @nuxtjs/i18n -->
         <div class="cateSection">
-            <div class="cateTitle">#useI18n (@nuxtjs/i18n)</div>
+            <div class="cateTitle">
+                #useI18n (<a
+                    class="link-external"
+                    href="https://v8.i18n.nuxtjs.org/"
+                    target="_blank"
+                    >@nuxtjs/i18n</a
+                >)
+            </div>
             <div class="cateDes textNormal">
                 <div class="flex items-center mb-[20px]">
                     lang:
@@ -90,7 +97,14 @@
         </div>
         <!-- @nuxtjs/device -->
         <div class="cateSection">
-            <div class="cateTitle">#useDevice (@nuxtjs/device)</div>
+            <div class="cateTitle">
+                #useDevice (<a
+                    class="link-external"
+                    href="https://nuxt.com/modules/device"
+                    target="_blank"
+                    >@nuxtjs/device</a
+                >)
+            </div>
             <div class="cateDes textNormal">
                 userAgent: {{ device.userAgent }}<br />
                 isDesktop: {{ device.isDesktop }}<br />
@@ -107,9 +121,17 @@
                 .
             </div>
         </div>
-        <!-- useMedia nuxt-viewport -->
+        <!-- useMedia (composables & injection) -->
         <div class="cateSection">
-            <div class="cateTitle">#useMedia (nuxt-viewport)</div>
+            <div class="cateTitle">
+                #useMedia (composables & injection) &nbsp;&nbsp;底層使用
+                <a
+                    class="link-external"
+                    href="https://nuxt.com/modules/nuxt-viewport"
+                    target="_blank"
+                    >nuxt-viewport</a
+                >
+            </div>
             <div class="cateDes textNormal">
                 <ClientOnly>
                     <div>
@@ -178,7 +200,7 @@
 import { useGlobalStore } from '~/store'
 const { width: winWidth, height: winHeight } = useWindowSize()
 const colors = useColor()
-const store = useGlobalStore()
+const storeGlobal = useGlobalStore()
 const device = useDevice()
 const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
