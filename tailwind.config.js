@@ -16,11 +16,11 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require('postcss-import'),
-    require('tailwindcss/nesting')(require('postcss-nesting')),
-    require('tailwindcss'),
-    require('autoprefixer'),
-    require("@tailwindcss/aspect-ratio"),
+    // require('postcss-import'),
+    // require('tailwindcss/nesting')(require('postcss-nesting')),
+    // require('tailwindcss'),
+    // require('autoprefixer'),
+    // require("@tailwindcss/aspect-ratio"),
   ],
 }
 

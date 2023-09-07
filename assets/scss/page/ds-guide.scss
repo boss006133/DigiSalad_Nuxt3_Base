@@ -16,32 +16,47 @@
 }
 .pageDsGuide {
     padding: 20px 15px;
-}
-.cateSection {
-    @include cateSection;
-}
-.cateTitle {
-    font-style: italic;
-    color: #a1a1a1;
-    margin-bottom: 10px;
-    padding-left: 0px;
-}
-.cateDes {
-    @include cateDes;
-}
-// .textNormal {
-//     font-size: 14px;
-//     line-height: 1.5;
-//     color: black;
-// }
-.apply-tailwindcss {
-    @include cateDes-tailwind-apply;
-}
-.apply-screen-xl {
-    @screen min-xl {
-        color: #000;
-        font-size: 22px;
-        letter-spacing: 20px;
-        @apply font-en;
+
+    .cateSection {
+        @include cateSection;
+    }
+    .cateTitle {
+        font-style: italic;
+        color: #a1a1a1;
+        margin-bottom: 10px;
+        padding-left: 0px;
+    }
+    .cateDes {
+        @include cateDes;
+    }
+    // .textNormal {
+    //     font-size: 14px;
+    //     line-height: 1.5;
+    //     color: black;
+    // }
+    .apply-tailwindcss {
+        @include cateDes-tailwind-apply;
+    }
+    .apply-screen-xl {
+        @screen min-xl {
+            color: #000;
+            font-size: 22px;
+            letter-spacing: 20px;
+            @apply font-en;
+        }
+    }
+
+    .breakpoint__watch {
+        margin-top: 30px;
+    }
+    .breakpoint__log {
+        padding: 12px 15px;
+        background-color: #ebebeb;
+        color: #0006ff;
+        border-radius: 5px;
+        margin-top: 5px;
+        min-height: 70px;
+        max-height: 200px;
+        overflow-y: auto;
     }
 }

@@ -7,11 +7,13 @@
     "node": ">=16.0.0 <17.0.0"
   },
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "npx nuxi build",
+    "dev": "npx nuxi dev",
+    "generate": "npx nuxi generate",
+    "preview": "npx nuxi preview",
+    "postinstall": "npx nuxi prepare",
+    "analyze": "npx nuxi analyze",
+    "cleanup": "npx nuxi cleanup"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -23,6 +25,7 @@
     "@vueuse/nuxt": "^10.4.1",
     "autoprefixer": "^10.4.15",
     "nuxt": "^3.7.0",
+    "nuxt-viewport": "^2.0.6",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "stylelint": "^15.10.3",

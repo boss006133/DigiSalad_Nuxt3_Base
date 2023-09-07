@@ -1,20 +1,15 @@
-import { screensMedia } from '@/vender/tailwindcss/screens'
-
 export const useMedia = () => {
-    const screensObj = screensMedia
-    const mediaQuerys = reactive({}) as any
-    Object.entries(screensObj).forEach(([key, value]) => {
-        mediaQuerys[key] = useMediaQuery(
-            `(${value.type}-width: ${value.value})`,
-        )
-    })
-    const mediaNums = reactive({}) as any
-    Object.entries(screensObj).forEach(([key, value]) => {
-        mediaNums[key] = Number(value.value.split('px')[0])
-    })
+    const viewport = useViewport()
+
+    const min = (breakpointKey: string): boolean => {
+        return viewport.isGreaterOrEquals(breakpointKey)
+    }
+    const max = (breakpointKey: string): boolean => {
+        return viewport.isLessThan(breakpointKey)
+    }
 
     return {
-        ...toRefs(mediaQuerys),
-        list: mediaNums,
+        min,
+        max,
     }
 }

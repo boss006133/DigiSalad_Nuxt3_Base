@@ -107,6 +107,30 @@
                 .
             </div>
         </div>
+        <!-- useMedia nuxt-viewport -->
+        <div class="cateSection">
+            <div class="cateTitle">#useMedia (nuxt-viewport)</div>
+            <div class="cateDes textNormal">
+                <ClientOnly>
+                    <div>
+                        window width → {{ winWidth }}<br />
+                        window height → {{ winHeight }}
+                    </div>
+                </ClientOnly>
+                <br />
+                $useMedia.max('xl') → {{ $useMedia.max('xl') }}<br />
+                $useMedia.min('2xl') → {{ $useMedia.min('2xl') }}<br />
+                <div class="breakpoint__watch whitespace-pre-line">
+                    Breakpoint updated:<br />
+                    <div class="breakpoint__log">
+                        <p v-if="!breakpointUpdateLog">
+                            start to resize window to see log
+                        </p>
+                        {{ breakpointUpdateLog }}
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- useColor (composables) -->
         <div class="cateSection">
             <div class="cateTitle">#useColor (composables)</div>
@@ -125,24 +149,6 @@
                     }}</span>
                     <span class="name ml-[20px] text-[14px]">{{ key }}</span>
                 </div>
-            </div>
-        </div>
-        <!-- useMedia (composables) -->
-        <div class="cateSection">
-            <div class="cateTitle">
-                #using useMedia (composables) to switch element(v-if / v-show)
-                to show or hide
-            </div>
-            <div class="cateDes !text-[25px]">
-                <ClientOnly>
-                    <div class="text-black text-p2-d">
-                        min-md ({{ listMedia.minMd }}px):{{ minMd }} <br />
-                        max-md ({{ listMedia.maxMd }}px):{{ maxMd }} <br />
-                    </div>
-                    <span v-show="minMd" class="font-serif text-orange-300">
-                        DigiSalad Nuxt3 Base
-                    </span>
-                </ClientOnly>
             </div>
         </div>
         <!-- styling by classname from scss file -->
@@ -170,12 +176,25 @@
 </template>
 <script setup>
 import { useGlobalStore } from '~/store'
-const { maxMd, minMd, list: listMedia } = useMedia()
+const { width: winWidth, height: winHeight } = useWindowSize()
 const colors = useColor()
 const store = useGlobalStore()
 const device = useDevice()
 const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
+
+// const { $viewport } = useNuxtApp()
+const viewport = useViewport()
+let breakpointUpdateLog = ref('')
+const El_breakpointLog =
+    process.client && document.querySelector('.breakpoint__log')
+
+watch(viewport.breakpoint, async (newBreakpoint, oldBreakpoint) => {
+    const r = `${oldBreakpoint} -> ${newBreakpoint}\r\n`
+    breakpointUpdateLog.value += r
+    await nextTick()
+    El_breakpointLog.scrollTo({ top: El_breakpointLog.scrollHeight })
+})
 
 /**
  * exemple: 在 onMounted 內使用 useApiFetch

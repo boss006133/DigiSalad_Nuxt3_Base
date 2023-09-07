@@ -1,8 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const i18n = require('./vender/i18n/config.ts')
+const viewport = require('./vender/nuxt-viewport/config.ts')
 const devPort = parseInt(process.env.NUXT_PUBLIC_DEV_PORT || '') ?? 3000
 export default defineNuxtConfig({
-    css: ['~/assets/css/index.css'],
+    css: ['~/assets/scss/index.scss'],
     modules: [
         // doc: https://vueuse.org/guide/
         '@vueuse/nuxt',
@@ -16,7 +17,12 @@ export default defineNuxtConfig({
         '@nuxtjs/robots',
         // doc: https://nuxt.com/modules/device
         '@nuxtjs/device',
+        // doc: https://nuxt.com/modules/nuxt-viewport
+        'nuxt-viewport',
     ],
+    imports: {
+        dirs: ['vender'],
+    },
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#postcss
     devServer: {
         port: devPort,
@@ -24,6 +30,7 @@ export default defineNuxtConfig({
     // config: @nuxtjs/i18n
     // See https://v8.i18n.nuxtjs.org/getting-started/setup
     i18n,
+    viewport,
     postcss: {},
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig
     runtimeConfig: {
