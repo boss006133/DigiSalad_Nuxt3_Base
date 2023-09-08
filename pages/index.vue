@@ -4,7 +4,14 @@
         <NuxtLink class="btnGuide" to="/ds-guide">Guide</NuxtLink>
     </div>
 </template>
-<script setup></script>
+<script setup>
+definePageMeta({
+    pageTransition: {
+        name: 'blur',
+        mode: 'out-in'
+    }
+})
+</script>
 <style lang="scss">
 @import '@/assets/scss/page/home';
 </style>

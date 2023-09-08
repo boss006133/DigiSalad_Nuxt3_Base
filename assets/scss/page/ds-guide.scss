@@ -30,11 +30,6 @@
     .cateDes {
         @include cateDes;
     }
-    // .textNormal {
-    //     font-size: 14px;
-    //     line-height: 1.5;
-    //     color: black;
-    // }
     .apply-tailwindcss {
         @include cateDes-tailwind-apply;
     }

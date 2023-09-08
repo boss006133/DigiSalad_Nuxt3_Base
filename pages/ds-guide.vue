@@ -10,7 +10,7 @@
         <!-- general using -->
         <div class="cateSection">
             <div class="cateTitle">#general using</div>
-            <div class="cateDes textNormal">
+            <div class="cateDes">
                 <NuxtLink to="/" class="underline" name="BACK TO HOME PAGE">
                 </NuxtLink>
                 <div>
@@ -50,7 +50,7 @@
                     >@nuxtjs/i18n</a
                 >)
             </div>
-            <div class="cateDes textNormal">
+            <div class="cateDes">
                 <div class="flex items-center mb-[20px]">
                     lang:
                     <div class="inline-flex items-center pl-[10px]">
@@ -65,10 +65,10 @@
                                 locale === item.code
                                     ? {
                                           color: '#04c7cd',
-                                          cursor: 'default',
+                                          cursor: 'default'
                                       }
                                     : {
-                                          color: '#bbbbbb',
+                                          color: '#bbbbbb'
                                       }
                             "
                             :to="switchLocalePath(item.code)"
@@ -105,7 +105,7 @@
                     >@nuxtjs/device</a
                 >)
             </div>
-            <div class="cateDes textNormal">
+            <div class="cateDes">
                 userAgent: {{ device.userAgent }}<br />
                 isDesktop: {{ device.isDesktop }}<br />
                 isIos: {{ device.isIos }}<br />
@@ -132,7 +132,7 @@
                     >nuxt-viewport</a
                 >
             </div>
-            <div class="cateDes textNormal">
+            <div class="cateDes">
                 <ClientOnly>
                     <div>
                         window width → {{ winWidth }}<br />
@@ -156,7 +156,7 @@
         <!-- useColor (composables) -->
         <div class="cateSection">
             <div class="cateTitle">#useColor (composables)</div>
-            <div class="cateDes textNormal">
+            <div class="cateDes">
                 <div
                     class="flex items-center"
                     v-for="(item, key, index) in colors"
@@ -197,6 +197,10 @@
     </div>
 </template>
 <script setup>
+import transitionConfig from '~/helpers/transitionConfig'
+definePageMeta({
+    pageTransition: transitionConfig
+})
 import { useGlobalStore } from '~/store'
 const { width: winWidth, height: winHeight } = useWindowSize()
 const colors = useColor()
@@ -205,28 +209,45 @@ const device = useDevice()
 const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
+//#region viewport
 // const { $viewport } = useNuxtApp()
 const viewport = useViewport()
 let breakpointUpdateLog = ref('')
-const El_breakpointLog =
-    process.client && document.querySelector('.breakpoint__log')
+onMounted(() => {
+    const El_breakpointLog = document.querySelector('.breakpoint__log')
 
-watch(viewport.breakpoint, async (newBreakpoint, oldBreakpoint) => {
-    const r = `${oldBreakpoint} -> ${newBreakpoint}\r\n`
-    breakpointUpdateLog.value += r
-    await nextTick()
-    El_breakpointLog.scrollTo({ top: El_breakpointLog.scrollHeight })
+    watch(viewport.breakpoint, async (newBreakpoint, oldBreakpoint) => {
+        const r = `${oldBreakpoint} -> ${newBreakpoint}\r\n`
+        breakpointUpdateLog.value += r
+        await nextTick()
+        El_breakpointLog.scrollTo({ top: El_breakpointLog.scrollHeight })
+    })
 })
+//#endregion
 
-/**
- * exemple: 在 onMounted 內使用 useApiFetch
- */
+//#region exemple: 在 onMounted 內使用 useApiFetch
 // const datas = ref(null)
 // onMounted(async () => {
 //     await nextTick()
 //     const { data } = await useApiFetch('global/global')
 //     datas.value = data
+//     console.warn('datas.value', datas.value)
 // })
+//#endregion
+
+//#region useTransition
+const { transitionState } = useTransition()
+//監聽 page transition complete
+watch(
+    () => transitionState.transitionComplete,
+    (newValue) => {
+        if (newValue) {
+            //page transition complete
+            console.warn('page transition complete')
+        }
+    }
+)
+//#endregion
 </script>
 <style lang="scss">
 @import '@/assets/scss/page/ds-guide';
