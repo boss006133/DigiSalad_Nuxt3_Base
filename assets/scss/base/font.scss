@@ -1,0 +1,10 @@
+html {
+    @apply font-en;
+
+    &[lang^='zh-HK'] {
+        @apply font-tc;
+    }
+    &[lang^='zh-CN'] {
+        @apply font-sc;
+    }
+}

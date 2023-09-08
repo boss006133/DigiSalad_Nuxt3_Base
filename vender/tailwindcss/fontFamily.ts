@@ -2,8 +2,7 @@
  * Customizing fontFamily
  */
 const fonts = {
-    en: ["'Moderat'"],
-    en4zh: ["'Moderat-en'"],
+    en: ["'Proxima Nova'"],
     tc: ["Noto Sans TC"],
     sc: ["Noto Sans SC"]
 }
@@ -12,14 +11,15 @@ const fontFamily = {
         ...fonts.en,
         // ...defaultTheme.fontFamily.sans,
     ],
-    sc: [
-        ...fonts.en4zh,
-        ...fonts.sc,
-    ],
-    other: [
-        ...fonts.en4zh,
+    tc: [
         ...fonts.tc,
+        ...fonts.en,
     ],
+    sc: [
+        ...fonts.sc,
+        ...fonts.en,
+    ],
+
 }
 
 export default fontFamily

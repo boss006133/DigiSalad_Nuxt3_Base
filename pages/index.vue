@@ -1,7 +1,9 @@
 <template>
     <div class="pageHome">
         <h1>DigiSalad Nuxt3 Base</h1>
-        <NuxtLink class="btnGuide" to="/ds-guide">Guide</NuxtLink>
+        <NuxtLink class="btnGuide" :to="localePath('/ds-guide')">
+            {{ $t('btn.guide') }}
+        </NuxtLink>
     </div>
 </template>
 <script setup>

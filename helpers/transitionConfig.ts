@@ -33,5 +33,5 @@ const pageTransition = {
             .play();
     },
 };
-
-export default pageTransition;
+const middleware = (to: any, from: any) => { }
+export default { pageTransition, middleware };

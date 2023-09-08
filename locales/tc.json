@@ -1,26 +1,12 @@
 {
+    "btn": {
+        "guide": "指南"
+    },
     "text": {
-        "view_more": "了解更多",
-        "about": "關於",
-        "scroll_to_explore": "滑動瀏覽更多",
-        "recommend_for_you":"精選推薦",
-        "back":"返回",
-        "search_by_keyword":"搜尋關鍵字..."
+        "recommend_for_you": "精選推薦"
     },
     "error": {
-        "title": "噢！",
         "desc": "我們無法找到您要尋找的頁面。",
         "button_text": "返回主頁"
-    },
-    "filter": {
-        "categories": "類別",
-        "location": "地點",
-        "all": "全部"
-    },
-    "cookies": {
-        "text": "我們會使用cookies。請表示您是否接受我們使用cookies。",
-        "link":"按此了解更多",
-        "accept": "接受",
-        "reject": "拒絕"
     }
 }

@@ -2,7 +2,7 @@
     <div class="pageDsGuide">
         <!-- back to home -->
         <NuxtLink
-            to="/"
+            :to="localePath('/')"
             class="mb-[30px] py-[6px] px-[16px] rounded-[4px] bg-slate-700 text-[12px] text-white inline-flex items-center transition hover:bg-slate-500"
             ><span class="pr-[10px]">←</span
             >{{ $t('error.button_text') }}</NuxtLink
@@ -11,15 +11,6 @@
         <div class="cateSection">
             <div class="cateTitle">#general using</div>
             <div class="cateDes">
-                <NuxtLink to="/" class="underline" name="BACK TO HOME PAGE">
-                </NuxtLink>
-                <div>
-                    brand 05:
-                    <span
-                        class="mr-[5px] w-[10px] h-[10px] inline-block bg-brand-05"
-                    ></span
-                    >{{ colors.brand_05.value }}
-                </div>
                 <div>$config.public.baseURL: {{ $config.public?.baseURL }}</div>
                 <div>store.userName: {{ storeGlobal.userName }}</div>
                 <div>store.timeNow: {{ storeGlobal.timeNow }}</div>
@@ -197,11 +188,20 @@
     </div>
 </template>
 <script setup>
-import transitionConfig from '~/helpers/transitionConfig'
-definePageMeta({
-    pageTransition: transitionConfig
-})
 import { useGlobalStore } from '~/store'
+import transitionConfig from '~/helpers/transitionConfig'
+
+// 設定page meta
+useMetaHead({
+    title: 'DS Guide',
+    description: 'DigiSalad Nuxt3 基本使用'
+})
+
+// 設定page transition
+definePageMeta({
+    ...transitionConfig
+})
+
 const { width: winWidth, height: winHeight } = useWindowSize()
 const colors = useColor()
 const storeGlobal = useGlobalStore()

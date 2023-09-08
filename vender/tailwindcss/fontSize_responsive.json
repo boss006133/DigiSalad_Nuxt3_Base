@@ -1,0 +1,122 @@
+{
+    "h1-r": [
+        "1.875rem",
+        {
+            "lineHeight": "1.2",
+            "letterSpacing": 0,
+            "fontWeight": 600
+        }
+    ],
+    "h2-r": [
+        "1.625rem",
+        {
+            "lineHeight": "1.23",
+            "letterSpacing": 0,
+            "fontWeight": 500
+        }
+    ],
+    "h3-r": [
+        "1.5rem",
+        {
+            "lineHeight": "1.25",
+            "letterSpacing": 0,
+            "fontWeight": 500
+        }
+    ],
+    "h4-r": [
+        "1.25rem",
+        {
+            "lineHeight": "1.2",
+            "letterSpacing": 0,
+            "fontWeight": 500
+        }
+    ],
+    "h5-r": [
+        "1.125rem",
+        {
+            "lineHeight": "1.22",
+            "letterSpacing": 0,
+            "fontWeight": 500
+        }
+    ],
+    "p1-r": [
+        "1rem",
+        {
+            "lineHeight": "1.375",
+            "letterSpacing": 0,
+            "fontWeight": 400
+        }
+    ],
+    "p1-r-medium": [
+        "1rem",
+        {
+            "lineHeight": "1.375",
+            "letterSpacing": 0,
+            "fontWeight": 500
+        }
+    ],
+    "p1-r-bold": [
+        "1rem",
+        {
+            "lineHeight": "1.375",
+            "letterSpacing": 0,
+            "fontWeight": 700
+        }
+    ],
+    "p2-r": [
+        "0.875rem",
+        {
+            "lineHeight": "1.285",
+            "letterSpacing": 0,
+            "fontWeight": 400
+        }
+    ],
+    "p2-r-medium": [
+        "0.875rem",
+        {
+            "lineHeight": "1.285",
+            "letterSpacing": 0,
+            "fontWeight": 500
+        }
+    ],
+    "p2-r-bold": [
+        "0.875rem",
+        {
+            "lineHeight": "1.285",
+            "letterSpacing": 0,
+            "fontWeight": 700
+        }
+    ],
+    "p3-r": [
+        "0.75rem",
+        {
+            "lineHeight": "1.166",
+            "letterSpacing": 0,
+            "fontWeight": 400
+        }
+    ],
+    "p3-r-medium": [
+        "0.75rem",
+        {
+            "lineHeight": "1.166",
+            "letterSpacing": 0,
+            "fontWeight": 500
+        }
+    ],
+    "p3-r-bold": [
+        "0.75rem",
+        {
+            "lineHeight": "1.166",
+            "letterSpacing": 0,
+            "fontWeight": 700
+        }
+    ],
+    "p4-r": [
+        "0.625rem",
+        {
+            "lineHeight": "1.2",
+            "letterSpacing": 0,
+            "fontWeight": 400
+        }
+    ]
+}

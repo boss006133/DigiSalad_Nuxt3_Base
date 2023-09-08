@@ -20,9 +20,6 @@ export default defineNuxtConfig({
         // doc: https://nuxt.com/modules/nuxt-viewport
         'nuxt-viewport',
     ],
-    imports: {
-        dirs: ['vender'],
-    },
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#postcss
     devServer: {
         port: devPort,
