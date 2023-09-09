@@ -4,7 +4,7 @@
     @return $remValue;
 }
 
-//文字大小10px
+// 文字大小10px
 @mixin fontSize10($important: null) {
     @if $important == important {
         font-size: rem(12) !important;
@@ -14,7 +14,7 @@
     transform: scale(0.83333);
     transform-origin: 0 0;
 }
-//文字大小11px
+// 文字大小11px
 @mixin fontSize11($important: null) {
     @if $important == important {
         font-size: rem(12) !important;
@@ -23,4 +23,17 @@
     }
     transform: scale(0.91666);
     transform-origin: 0 0;
+}
+
+// 產生共用fontSize className
+// ※$font-size-base => 由nuxt.config產生,可使用下方@debug方式查看
+// ※供scss擴充使用 => ex: .xxx{ @extend .text-h1; }
+// @debug "font-size-base: #{$font-size-base}";
+@each $name, $desktop, $responsive in $font-size-base {
+    .#{$name} {
+        @apply #{$desktop};
+        @screen max-lg {
+            @apply #{$responsive};
+        }
+    }
 }
