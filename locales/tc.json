@@ -1,12 +1,8 @@
 {
-    "btn": {
-        "guide": "指南"
-    },
-    "text": {
-        "recommend_for_you": "精選推薦"
-    },
-    "error": {
-        "desc": "我們無法找到您要尋找的頁面。",
-        "button_text": "返回主頁"
+    "guide": {
+        "btn_to_guide": "指南",
+        "btn_to_home": "返回主頁",
+        "recommend_for_you": "精選推薦",
+        "desc": "我們無法找到您要尋找的頁面。"
     }
 }

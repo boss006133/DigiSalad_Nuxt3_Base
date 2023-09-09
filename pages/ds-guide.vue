@@ -5,15 +5,18 @@
             :to="localePath('/')"
             class="mb-[30px] py-[6px] px-[16px] rounded-[4px] bg-slate-700 text-[12px] text-white inline-flex items-center transition hover:bg-slate-500"
             ><span class="pr-[10px]">←</span
-            >{{ $t('error.button_text') }}</NuxtLink
+            >{{ $t('guide.btn_to_home') }}</NuxtLink
         >
+
         <!-- general using -->
         <div class="cateSection">
             <div class="cateTitle">#general using</div>
             <div class="cateDes">
-                <div>$config.public.baseURL: {{ $config.public?.baseURL }}</div>
-                <div>store.userName: {{ storeGlobal.userName }}</div>
-                <div>store.timeNow: {{ storeGlobal.timeNow }}</div>
+                <div>
+                    $config.public.baseURL → {{ $config.public?.baseURL }}
+                </div>
+                <div>store.userName → {{ storeGlobal.userName }}</div>
+                <div>store.timeNow → {{ storeGlobal.timeNow }}</div>
                 <button
                     type="button"
                     @click="storeGlobal.nuxtServerInit"
@@ -68,9 +71,9 @@
                         </NuxtLink>
                     </div>
                 </div>
-                $t('text.recommend_for_you'): {{ $t('text.recommend_for_you')
-                }}<br />
-                $t('error.desc'): {{ $t('error.desc') }}
+                $t('guide.recommend_for_you') →
+                {{ $t('guide.recommend_for_you') }}<br />
+                $t('guide.desc') → {{ $t('guide.desc') }}
                 <div class="mt-[10px] text-[14px]" style="color: #f7b55e">
                     ※(Switching language will tigger
                     <span
@@ -97,16 +100,16 @@
                 >)
             </div>
             <div class="cateDes">
-                userAgent: {{ device.userAgent }}<br />
-                isDesktop: {{ device.isDesktop }}<br />
-                isIos: {{ device.isIos }}<br />
-                isAndroid: {{ device.isAndroid }}<br />
-                isMobile: {{ device.isMobile }}<br />
-                isMobileOrTablet: {{ device.isMobileOrTablet }}<br />
-                isDesktopOrTablet: {{ device.isDesktopOrTablet }}<br />
-                isTablet: {{ device.isTablet }}<br />
-                isWindows: {{ device.isWindows }}<br />
-                isMacOS: {{ device.isMacOS }}<br />
+                userAgent → {{ device.userAgent }}<br />
+                isDesktop → {{ device.isDesktop }}<br />
+                isIos → {{ device.isIos }}<br />
+                isAndroid → {{ device.isAndroid }}<br />
+                isMobile → {{ device.isMobile }}<br />
+                isMobileOrTablet → {{ device.isMobileOrTablet }}<br />
+                isDesktopOrTablet → {{ device.isDesktopOrTablet }}<br />
+                isTablet → {{ device.isTablet }}<br />
+                isWindows → {{ device.isWindows }}<br />
+                isMacOS → {{ device.isMacOS }}<br />
                 .<br />
                 .<br />
                 .
@@ -164,6 +167,24 @@
                 </div>
             </div>
         </div>
+        <!-- styling font-size -->
+        <div class="cateSection">
+            <div class="cateTitle">
+                #styling font-size
+                <span class="text-[#c97979] text-[16px]"
+                    >預設 @screen max-lg 進行切換font-size
+                </span>
+            </div>
+            <div class="cateDes">
+                <div
+                    v-for="(value, index) in keysFontSizeBase"
+                    :key="index"
+                    class="mb-[5px]"
+                >
+                    <p :class="`${value}`">DigiSalad 正文文本 {{ value }}</p>
+                </div>
+            </div>
+        </div>
         <!-- styling by classname from scss file -->
         <div class="cateSection">
             <div class="cateTitle">#styling by classname from scss file</div>
@@ -178,18 +199,55 @@
             </div>
             <div class="cateDes apply-tailwindcss">DigiSalad Nuxt3 Base</div>
         </div>
-        <!-- styling by RWD(@screen xl) from scss file -->
+        <!-- styling by RWD(@screen min-xl) from scss file -->
         <div class="cateSection">
             <div class="cateTitle">
-                #styling by RWD(@screen xl) from scss file
+                #styling by RWD(@screen min-xl) from scss file
             </div>
-            <div class="cateDes apply-screen-xl">DigiSalad Nuxt3 Base</div>
+            <div class="cateDes apply-screen-minXl">DigiSalad Nuxt3 Base</div>
+        </div>
+        <!-- styling by tailwindcss line-clamp-{nummber} -->
+        <div class="cateSection">
+            <div class="cateTitle">
+                #styling by tailwindcss
+                <span class="text-[#c97979] text-[16px]"
+                    >class="line-clamp-{nummber}"
+                </span>
+            </div>
+            <div class="cateDes">
+                <p class="line-clamp-2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+                    beatae cumque tempore eveniet quae reiciendis architecto a
+                    ad distinctio nisi. Facere animi sapiente aut soluta!
+                    Veniam, enim? Earum, repudiandae ducimus. A cum dolor
+                    eligendi asperiores cumque obcaecati blanditiis saepe, quas
+                    ducimus, magni neque nam ut facilis iusto dolores accusamus,
+                    necessitatibus nihil molestiae reprehenderit reiciendis
+                    atque porro! Consequuntur magnam itaque ad? Quasi ducimus
+                    beatae eveniet labore. Praesentium dolores omnis ad fugiat
+                    corrupti, laudantium qui labore itaque eaque placeat ipsa
+                    odio? Molestias deserunt ipsum beatae illum iusto iure animi
+                    alias exercitationem illo. Vero fugit, laboriosam omnis est
+                    enim quod adipisci, ad veniam modi porro molestiae ipsam
+                    provident cumque vel dicta neque? Voluptates assumenda sint
+                    rerum rem, placeat minus possimus ad. Modi, ab. Ut tempora
+                    inventore, dolores commodi quod fuga itaque a veritatis
+                    error eligendi sunt, illo eveniet tenetur natus eos ipsa ab
+                    sequi libero ipsum voluptas voluptatibus. Ex iusto inventore
+                    totam velit.
+                </p>
+            </div>
         </div>
     </div>
 </template>
 <script setup>
 import { useGlobalStore } from '~/store'
 import transitionConfig from '~/helpers/transitionConfig'
+import fontSizeDesktop from '~/vender/tailwindcss/fontSize_desktop.json'
+const keysFontSizeBase = Object.keys(fontSizeDesktop).map((key) => {
+    const name = `text-${key.substring(0, key.lastIndexOf('-'))}`
+    return name
+})
 
 // 設定page meta
 useMetaHead({

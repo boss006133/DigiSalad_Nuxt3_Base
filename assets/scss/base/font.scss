@@ -8,3 +8,11 @@ html {
         @apply font-sc;
     }
 }
+@each $name, $desktop, $responsive in $font-size-base {
+    .#{$name} {
+        @apply #{$desktop};
+        @screen max-lg {
+            @apply #{$responsive};
+        }
+    }
+}

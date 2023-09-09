@@ -1,0 +1,26 @@
+// 文字大小 px => rem
+@function rem($value) {
+    $remValue: calc($value / var(--font-size-int-base) * 1rem);
+    @return $remValue;
+}
+
+//文字大小10px
+@mixin fontSize10($important: null) {
+    @if $important == important {
+        font-size: rem(12) !important;
+    } @else {
+        font-size: rem(12);
+    }
+    transform: scale(0.83333);
+    transform-origin: 0 0;
+}
+//文字大小11px
+@mixin fontSize11($important: null) {
+    @if $important == important {
+        font-size: rem(12) !important;
+    } @else {
+        font-size: rem(12);
+    }
+    transform: scale(0.91666);
+    transform-origin: 0 0;
+}

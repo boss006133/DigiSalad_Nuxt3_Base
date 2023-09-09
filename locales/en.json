@@ -1,12 +1,8 @@
 {
-    "btn": {
-        "guide": "Guide"
-    },
-    "text": {
-        "recommend_for_you": "Recommend For You"
-    },
-    "error": {
-        "desc": "We can’t seem to find the page you’re looking for.",
-        "button_text": "Back to Home"
+    "guide": {
+        "btn_to_guide": "Guide",
+        "btn_to_home": "Back to Home",
+        "recommend_for_you": "Recommend For You",
+        "desc": "We can’t seem to find the page you’re looking for."
     }
 }

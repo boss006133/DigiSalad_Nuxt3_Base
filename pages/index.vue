@@ -2,7 +2,7 @@
     <div class="pageHome">
         <h1>DigiSalad Nuxt3 Base</h1>
         <NuxtLink class="btnGuide" :to="localePath('/ds-guide')">
-            {{ $t('btn.guide') }}
+            {{ $t('guide.btn_to_guide') }}
         </NuxtLink>
     </div>
 </template>

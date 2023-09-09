@@ -1,8 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const i18n = require('./vender/i18n/config.ts')
 const viewport = require('./vender/nuxt-viewport/config.ts')
+const fontSizeDesktop = require("./vender/tailwindcss/fontSize_desktop.json");
+const keysFontSizeBase = Object.keys(fontSizeDesktop).map((key: string) => {
+    const name = `text-${key.substring(0, key.lastIndexOf('-'))}`
+    const desktop = `${name}-d`
+    const responsive = `${name}-r`
+    return `'${name}' ${desktop} ${responsive}`
+}).join(',')
+const varFonts = `$font-size-base: ${keysFontSizeBase}`
+
 const devPort = parseInt(process.env.NUXT_PUBLIC_DEV_PORT || '') ?? 3000
 export default defineNuxtConfig({
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `@import '~/assets/scss/variables-css/index.scss';@import '~/assets/scss/functions/index.scss';${varFonts};`,
+                },
+            },
+        },
+    },
     css: ['~/assets/scss/index.scss'],
     modules: [
         // doc: https://vueuse.org/guide/

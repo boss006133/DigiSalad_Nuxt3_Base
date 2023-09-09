@@ -1,0 +1,4 @@
+html {
+    --font-size-int-base: 16;
+    --font-size-px-base: calc(var(--font-size-int-base) * 1px);
+}

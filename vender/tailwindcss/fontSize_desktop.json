@@ -47,7 +47,7 @@
             "fontWeight": 400
         }
     ],
-    "p1-d-medium": [
+    "p1-medium-d": [
         "1rem",
         {
             "lineHeight": "1.375",
@@ -55,7 +55,7 @@
             "fontWeight": 500
         }
     ],
-    "p1-d-bold": [
+    "p1-bold-d": [
         "1rem",
         {
             "lineHeight": "1.375",
@@ -71,7 +71,7 @@
             "fontWeight": 400
         }
     ],
-    "p2-d-medium": [
+    "p2-medium-d": [
         "0.875rem",
         {
             "lineHeight": "1.285",
@@ -79,7 +79,7 @@
             "fontWeight": 500
         }
     ],
-    "p2-d-bold": [
+    "p2-bold-d": [
         "0.875rem",
         {
             "lineHeight": "1.285",
@@ -95,7 +95,7 @@
             "fontWeight": 400
         }
     ],
-    "p3-d-medium": [
+    "p3-medium-d": [
         "0.75rem",
         {
             "lineHeight": "1.166",
@@ -103,7 +103,7 @@
             "fontWeight": 500
         }
     ],
-    "p3-d-bold": [
+    "p3-bold-d": [
         "0.75rem",
         {
             "lineHeight": "1.166",

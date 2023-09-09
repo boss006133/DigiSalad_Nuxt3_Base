@@ -1,12 +1,8 @@
 {
-    "btn": {
-        "guide": "指南"
-    },
-    "text": {
-        "recommend_for_you": "精选推荐"
-    },
-    "error": {
-        "desc": "我们无法找到您要寻找的页面。",
-        "button_text": "返回主页"
+    "guide": {
+        "btn_to_guide": "指南",
+        "btn_to_home": "返回主页",
+        "recommend_for_you": "精选推荐",
+        "desc": "我们无法找到您要寻找的页面。"
     }
 }
