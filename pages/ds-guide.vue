@@ -126,12 +126,11 @@
                 >
             </div>
             <div class="cateDes">
-                <ClientOnly>
-                    <div>
-                        window width → {{ winWidth }}<br />
-                        window height → {{ winHeight }}
-                    </div>
-                </ClientOnly>
+                <div>
+                    window width → <ClientOnly>{{ winWidth }}</ClientOnly>
+                    <br />
+                    window height → <ClientOnly>{{ winHeight }}</ClientOnly>
+                </div>
                 <br />
                 $useMedia.max('xl') → {{ $useMedia.max('xl') }}<br />
                 $useMedia.min('2xl') → {{ $useMedia.min('2xl') }}<br />
