@@ -1,5 +1,5 @@
 <template>
-    <div class="pageDsGuide">
+    <div class="pageDsGuide media-xl">
         <!-- back to home -->
         <NuxtLink
             :to="localePath('/')"
@@ -7,7 +7,6 @@
             ><span class="pr-[10px]">←</span
             >{{ $t('guide.btn_to_home') }}</NuxtLink
         >
-
         <!-- general using -->
         <div class="cateSection">
             <div class="cateTitle">#general using</div>
@@ -182,6 +181,30 @@
                     class="mb-[5px]"
                 >
                     <p :class="`${value}`">DigiSalad 正文文本 {{ value }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- styling button -->
+        <div class="cateSection">
+            <div class="cateTitle">#styling button</div>
+            <div class="cateDes">
+                <div class="flex items-center mb-[20px]">
+                    <button class="btn btn-primary--sm mx-[15px] ml-0">
+                        Text
+                    </button>
+                    <button class="btn btn-primary--md mx-[15px]">Text</button>
+                    <button class="btn btn-primary--lg mx-[15px]">Text</button>
+                </div>
+                <div class="flex items-center">
+                    <button class="btn btn-primary--sm mx-[15px] ml-0" disabled>
+                        Text
+                    </button>
+                    <button class="btn btn-primary--md mx-[15px]" disabled>
+                        Text
+                    </button>
+                    <button class="btn btn-primary--lg mx-[15px]" disabled>
+                        Text
+                    </button>
                 </div>
             </div>
         </div>

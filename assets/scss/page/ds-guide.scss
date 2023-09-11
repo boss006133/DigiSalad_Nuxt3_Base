@@ -12,7 +12,7 @@
     @apply text-6xl font-semibold text-blue-600;
 }
 .pageDsGuide {
-    padding: 20px 15px;
+    padding: 20px 0;
     .cateTitle {
         color: #000000;
         margin-bottom: 10px;
@@ -32,6 +32,11 @@
             font-size: rem(22);
             letter-spacing: 20px;
             @apply font-en;
+        }
+        @include mediaMax('md') {
+            color: #2fb185;
+            font-size: rem(30);
+            letter-spacing: 10px;
         }
     }
 

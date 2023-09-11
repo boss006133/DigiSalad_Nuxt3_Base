@@ -1,0 +1,31 @@
+//#region media query 共用方法
+//小於
+@mixin mediaMax($name) {
+    @media all and (max-width: map-get($media-query-list, $name,'max')) {
+        @content;
+    }
+}
+//大於
+@mixin mediaMin($name) {
+    @media all and (min-width: map-get($media-query-list, $name,'min')) {
+        @content;
+    }
+}
+//#endregion
+
+@each $name, $value in $media-query-list {
+    $max-width: map-get($value, max);
+    .media-#{$name} {
+        max-width: $max-width;
+        margin: 0 auto;
+        @if $name == 5xl {
+            @include mediaMax($name) {
+                margin: 0;
+            }
+        } @else {
+            @include mediaMax($name) {
+                margin: 0 16px;
+            }
+        }
+    }
+}

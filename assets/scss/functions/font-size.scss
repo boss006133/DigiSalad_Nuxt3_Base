@@ -1,6 +1,6 @@
 // 文字大小 px => rem
 @function rem($value) {
-    $remValue: calc($value / var(--font-size-int-base) * 1rem);
+    $remValue: calc($value / var(--font-size-base-int) * 1rem);
     @return $remValue;
 }
 

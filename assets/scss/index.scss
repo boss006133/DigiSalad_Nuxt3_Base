@@ -1,9 +1,6 @@
-// @import 'tailwindcss/base';
-// @import 'tailwindcss/components';
-// @import 'tailwindcss/utilities';
-@import '@/assets/scss/base/typeface';
-
-@import '@/assets/scss/base/reset';
-@import '@/assets/scss/base/font';
-@import '@/assets/scss/base/page-transition';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '@/assets/scss/base/index';
 @import '@/assets/scss/layout/root';
+@import '@/assets/scss/components/index';

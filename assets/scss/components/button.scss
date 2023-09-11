@@ -1,0 +1,44 @@
+@layer components {
+    .btn {
+        @apply flex w-fit items-center transition duration-200;
+        border-radius: 99em;
+    }
+    .btn-primary {
+        &--lg,
+        &--md {
+            @apply text-p1-bold-d;
+        }
+        &--sm {
+            @apply text-p1-medium-d;
+        }
+    }
+    .btn-primary {
+        &--lg,
+        &--md,
+        &--sm {
+            @apply bg-slate-900 text-white;
+            @media (hover: hover) {
+                &:hover {
+                    @apply bg-slate-500;
+                }
+            }
+            &:active,
+            &.--active {
+                @apply bg-slate-400;
+            }
+            &.--disabled,
+            &:disabled {
+                @apply pointer-events-none cursor-not-allowed bg-grey-400;
+            }
+        }
+        &--lg {
+            padding: 14px 24px;
+        }
+        &--md {
+            padding: 12px 20px;
+        }
+        &--sm {
+            padding: 8px 15px;
+        }
+    }
+}
