@@ -58,10 +58,10 @@
                                 locale === item.code
                                     ? {
                                           color: '#04c7cd',
-                                          cursor: 'default'
+                                          cursor: 'default',
                                       }
                                     : {
-                                          color: '#bbbbbb'
+                                          color: '#bbbbbb',
                                       }
                             "
                             :to="switchLocalePath(item.code)"
@@ -274,12 +274,12 @@ const keysFontSizeBase = Object.keys(fontSizeDesktop).map((key) => {
 // 設定page meta
 useMetaHead({
     title: 'DS Guide',
-    description: 'DigiSalad Nuxt3 基本使用'
+    description: 'DigiSalad Nuxt3 基本使用',
 })
 
 // 設定page transition
 definePageMeta({
-    ...transitionConfig
+    ...transitionConfig,
 })
 
 const { width: winWidth, height: winHeight } = useWindowSize()
@@ -325,7 +325,7 @@ watch(
             //page transition complete
             console.warn('page transition complete')
         }
-    }
+    },
 )
 //#endregion
 </script>
