@@ -26,8 +26,8 @@
 }
 
 // 產生共用fontSize className
-// ※$font-size-base => 由nuxt.config產生,可使用下方@debug方式查看
-// ※供scss擴充使用 => ex: .xxx{ @extend .text-h1; }
+// ※$font-size-base => 由~/config/vite.ts產生,可使用下方@debug方式查看
+// ※scss擴充使用 => ex: .xxx{ @extend .text-h1; }
 // @debug "font-size-base: #{$font-size-base}";
 @each $name, $desktop, $responsive in $font-size-base {
     .#{$name} {

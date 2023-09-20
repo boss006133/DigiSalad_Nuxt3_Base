@@ -4,6 +4,7 @@ import { CLASSNAME_PAGE_BLOCKING } from '@/constants/type/component'
 
 const defaultState = {
     pageLoading: false,
+    pageKey: new Date().getTime(),
 }
 export const useGlobalStore = defineStore('global', {
     state: () => ({

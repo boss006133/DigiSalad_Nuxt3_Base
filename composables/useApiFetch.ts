@@ -23,16 +23,24 @@ export const useApiFetch = async (name: string, opts?: any) => {
     let url = isLocal ? `/api/${apiSetting.url}` : apiSetting.url
     if (urlChild.length) url = `${url}/${urlChild.join('/')}`
 
-    const baseURL = isLocal ? '/' : config.public.apiBase
+    const baseUrl = isLocal ? '/' : config.public.apiBase
+    const baseURL = baseUrl
     const method = apiSetting.method ?? 'get'
+
+    const onRequest = (options) => {
+        // const myToken = await getMyToken()
+        // options.headers.Authorization = `Bearer ${myToken}`
+        options.headers = new Headers(options.headers)
+        options.headers.set('locale', locale)
+        options.headers.set('platform', 'web')
+        options.headers.set('api-key', config.public.apiKey)
+        return options
+    }
     return useFetch(url, {
         baseURL,
         method,
         async onRequest({ options }) {
-            options.headers = new Headers(options.headers)
-            options.headers.set('locale', locale)
-            options.headers.set('platform', 'web')
-            options.headers.set('api-key', config.public.apiKey)
+            onRequest(options)
         },
         async onResponseError({ request, response, options }) {
             const router = useRouter()
@@ -40,5 +48,6 @@ export const useApiFetch = async (name: string, opts?: any) => {
             router.replace(localePath('/404'))
         },
         ...opts,
+        signal: nuxtApp.$useAbort.signal(),
     })
 }

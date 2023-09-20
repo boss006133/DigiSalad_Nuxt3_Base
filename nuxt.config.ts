@@ -3,10 +3,14 @@ const vite = require('./config/vite.ts')
 const i18n = require('./vender/i18n/config.ts')
 const viewport = require('./vender/nuxt-viewport/config.ts')
 
-
+const isProduction = process.env.NUXT_PUBLIC_NODE_ENV === 'production'
 const devPort = parseInt(process.env.NUXT_PUBLIC_DEV_PORT || '') ?? 3000
-export default defineNuxtConfig({
+const _meta_extend = [] as any
+if (!isProduction) {
+    _meta_extend.push({ hid: 'robots', name: 'robots', content: 'noindex' })
+}
 
+export default defineNuxtConfig({
     css: ['~/assets/scss/index.scss'],
     modules: [
         // doc: https://vueuse.org/guide/
@@ -31,6 +35,10 @@ export default defineNuxtConfig({
     i18n,
     vite,
     viewport,
+    tailwindcss: {
+        exposeConfig: true,
+        // exposeLevel: 1,  // determines tree-shaking (optional)
+    },
     postcss: {},
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig
     runtimeConfig: {
@@ -43,6 +51,7 @@ export default defineNuxtConfig({
             apiKey: '',
             baseURL: `http://localhost:${devPort}`, // can be overridden by NUXT_PUBLIC_BASE_URL environment variable
             apiBase: `http://localhost:${devPort}/api`,
+            nodeEnv: '',
             // robotSearchable: '',
             // gtmID: '',
         },

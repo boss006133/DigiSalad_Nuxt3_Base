@@ -1,9 +1,9 @@
 import { useGlobalStore } from '~/store'
-import { action as actionIndex } from '@/constants/store/actions'
 export default defineNuxtPlugin((nuxtApp: any) => {
-    const { $i18n, $pinia } = useNuxtApp()
-    $i18n.onLanguageSwitched = async () => {
+    const { $pinia } = useNuxtApp()
+
+    nuxtApp.hook('i18n:localeSwitched', async ({ oldLocale, newLocale }) => {
         const storeGlobal = useGlobalStore($pinia)
         await storeGlobal.nuxtServerInit()
-    }
+    })
 })

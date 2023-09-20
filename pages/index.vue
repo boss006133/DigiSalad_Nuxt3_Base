@@ -6,14 +6,7 @@
         </NuxtLink>
     </div>
 </template>
-<script setup>
-definePageMeta({
-    pageTransition: {
-        name: 'blur',
-        mode: 'out-in'
-    }
-})
-</script>
+<script setup></script>
 <style lang="scss">
 @import '@/assets/scss/page/home';
 </style>
