@@ -366,6 +366,19 @@ watch(
     },
 )
 //#endregion
+
+//#region useAfterScreenResize
+//監聽 after screen resize complete
+const { screenResizeState } = useAfterScreenResize()
+watch(
+    () => screenResizeState.resizeComplete,
+    (newValue) => {
+        if (newValue) {
+            console.warn('screen resize complete')
+        }
+    },
+)
+//#endregion
 </script>
 <style lang="scss">
 @import '@/assets/scss/page/ds-guide';
