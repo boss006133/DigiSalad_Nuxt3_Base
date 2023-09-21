@@ -2,7 +2,8 @@
     <NuxtLayout id="nuxt-layout">
         <NuxtLoadingIndicator />
         <NuxtPage :key="storeGlobal.pageKey" />
-        <UiPageLoader />
+        <UiDsAppTransition />
+        <UiDsPageLoader />
     </NuxtLayout>
 </template>
 <script lang="ts" setup>
