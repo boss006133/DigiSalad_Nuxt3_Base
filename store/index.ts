@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { action as actionIndex } from '@/constants/store/actions'
-import { CLASSNAME_PAGE_BLOCKING } from '@/constants/type/component'
+import { CLASSNAME_PAGE_BLOCKING } from '~/constants/type/className-variables'
 
 const defaultState = {
     pageLoading: false,
