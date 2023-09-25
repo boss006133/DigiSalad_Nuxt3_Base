@@ -2,6 +2,7 @@
 const vite = require('./config/vite.ts')
 const i18n = require('./vender/i18n/config.ts')
 const viewport = require('./vender/nuxt-viewport/config.ts')
+const security = require('./vender/security/config.ts')
 
 
 const devPort = parseInt(process.env.NUXT_PUBLIC_DEV_PORT || '') ?? 3000
@@ -17,12 +18,18 @@ export default defineNuxtConfig({
         '@nuxtjs/i18n',
         // doc: https://pinia.vuejs.org/ssr/nuxt.html
         '@pinia/nuxt',
-        // doc: https://nuxt.com/modules/robots
-        '@nuxtjs/robots',
+        // doc: https://nuxt.com/modules/simple-robots
+        'nuxt-simple-robots',
+        // doc: https://nuxt.com/modules/simple-sitemap
+        'nuxt-simple-sitemap',
+        // doc: https://www.npmjs.com/package/nuxt-schema-org
+        'nuxt-schema-org',
         // doc: https://nuxt.com/modules/device
         '@nuxtjs/device',
         // doc: https://nuxt.com/modules/nuxt-viewport
         'nuxt-viewport',
+        // doc: https://nuxt-security.vercel.app/
+        'nuxt-security',
     ],
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#postcss
     devServer: {
@@ -32,11 +39,14 @@ export default defineNuxtConfig({
     vite,
     viewport,
     postcss: {},
+    schemaOrg: {
+        host: process.env.NUXT_PUBLIC_BASE_URL,
+    },
+    security,
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig
     runtimeConfig: {
         // apiUsername: '', // can be overridden by NUXT_API_USERNAME environment variable
         // apiPassword: '',
-        // basicAuth: '',
         // siteUrl: process.env.NUXT_PUBLIC_BASE_URL,
         public: {
             // appBuildVersion: process.env.APP_BUILD_VERSION,

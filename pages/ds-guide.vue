@@ -260,19 +260,6 @@
                 </p>
             </div>
         </div>
-        <!-- nuxt-simple-robots -->
-        <div class="cateSection">
-            <div class="cateTitle">
-                #nuxt-simple-robots (<a
-                    class="link-external"
-                    href="https://nuxtseo.com/robots/getting-started/installation"
-                    target="_blank"
-                    >nuxt-simple-robots</a
-                >)
-            </div>
-            <div class="cateDes">
-            </div>
-        </div>
         <!-- nuxt-simple-sitemap -->
         <div class="cateSection">
             <div class="cateTitle">
@@ -284,6 +271,7 @@
                 >)
             </div>
             <div class="cateDes">
+                <iframe src="/sitemap.xml" class="w-full h-[400px]"></iframe>
             </div>
         </div>
         <!-- nuxt-schema-org -->
@@ -297,6 +285,7 @@
                 >)
             </div>
             <div class="cateDes">
+                <SchemaOrgDebug />
             </div>
         </div>
     </div>
@@ -372,6 +361,14 @@ watch(
     },
 )
 //#endregion
+
+useSchemaOrg([
+  // TODO Select Identity: https://unhead.unjs.io/schema-org/guides/identity
+  defineWebSite({
+    name: 'My Awesome Website',
+  }),
+  defineWebPage(),
+])
 </script>
 <style lang="scss">
 @import '@/assets/scss/page/ds-guide';
