@@ -11,6 +11,11 @@ if (!isProduction) {
 }
 
 export default defineNuxtConfig({
+    app: {
+        head: {
+            meta: [..._meta_extend],
+        },
+    },
     css: ['~/assets/scss/index.scss'],
     modules: [
         // doc: https://vueuse.org/guide/
@@ -31,6 +36,9 @@ export default defineNuxtConfig({
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#postcss
     devServer: {
         port: devPort,
+    },
+    device: {
+        refreshOnResize: true,
     },
     i18n,
     vite,
