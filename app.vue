@@ -1,18 +1,21 @@
 <template>
-    <NuxtLayout>
+    <NuxtLayout id="nuxt-layout">
         <NuxtLoadingIndicator />
-        <NuxtPage />
-        <UiPageLoader />
+        <NuxtPage :key="storeGlobal.pageKey" />
+        <UiDsAppTransition />
+        <UiDsPageLoader />
     </NuxtLayout>
 </template>
-<script setup>
+<script lang="ts" setup>
+import { useGlobalStore } from '~/store'
+const storeGlobal = useGlobalStore()
 const { toggleTransitionComplete } = useTransition()
-const { locale, locales } = useI18n()
 // 設定page meta
 useMetaHead({
     title: 'DigiSalad Nuxt3 基本使用',
-    description: 'DigiSalad Nuxt3 基本使用'
+    description: 'DigiSalad Nuxt3 基本使用',
 })
+
 onMounted(() => {
     toggleTransitionComplete(true)
 })

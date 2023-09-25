@@ -2,6 +2,9 @@ html {
     font-size: var(--font-size-base-px);
 }
 body {
-    overflow-x: hidden;
     @apply bg-grey-50;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }

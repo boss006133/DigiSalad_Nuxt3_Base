@@ -27,10 +27,29 @@
                         margin-top: 10px;
                     "
                 >
-                    nuxtServerInit</button
-                ><span class="ml-[5px]" style="color: #04c7cd"
-                    >(check on chrome devtool 'Network => Fetch/XHR')</span
+                    nuxtServerInit
+                </button>
+                <span class="ml-[5px]" style="color: #04c7cd">
+                    (check on chrome devtool 'Network => Fetch/XHR') </span
+                ><br />
+                <NuxtLinkLocale
+                    to="/ds-guide"
+                    @click="$refreshPage('/ds-guide')"
+                    style="
+                        border-radius: 5px;
+                        background-color: #04c7cd;
+                        color: white;
+                        padding: 5px 12px;
+                        margin-top: 10px;
+                        display: inline-block;
+                    "
                 >
+                    <span class="text"> /ds-guide </span>
+                </NuxtLinkLocale>
+                <span class="ml-[5px]" style="color: #04c7cd">
+                    (if the link route is same with current route, do refresh
+                    page)
+                </span>
             </div>
         </div>
         <!-- @nuxtjs/i18n -->
@@ -68,6 +87,28 @@
                         >
                             <div v-html="item.name"></div>
                         </NuxtLink>
+                    </div>
+                </div>
+                <div class="flex items-center mb-[20px]">
+                    lang remains:
+                    <div class="inline-flex items-center pl-[10px]">
+                        <NuxtLink
+                            v-for="item in otherLocales"
+                            :key="item.code"
+                            class="mr-3 font-medium leading-[1.3] last-of-type:mr-0"
+                            :style="{
+                                color: '#bbbbbb',
+                            }"
+                            :to="switchLocalePath(item.code)"
+                        >
+                            <div v-html="item.name"></div>
+                        </NuxtLink>
+                    </div>
+                </div>
+                <div class="flex items-center mb-[20px]">
+                    lang current:
+                    <div class="inline-flex items-center pl-[10px]">
+                        {{ currentLocaleName }}
                     </div>
                 </div>
                 $t('guide.recommend_for_you') →
@@ -292,7 +333,6 @@
 </template>
 <script setup>
 import { useGlobalStore } from '~/store'
-import transitionConfig from '~/helpers/transitionConfig'
 import fontSizeDesktop from '~/vender/tailwindcss/fontSize_desktop.json'
 const keysFontSizeBase = Object.keys(fontSizeDesktop).map((key) => {
     const name = `text-${key.substring(0, key.lastIndexOf('-'))}`
@@ -310,16 +350,14 @@ useMetaHead({
     ...seo.value,
 });
 
-// 設定page transition
-definePageMeta({
-    ...transitionConfig,
-})
+const { data } = await useApiFetch('global/global')
 
 const { width: winWidth, height: winHeight } = useWindowSize()
 const colors = useColor()
 const storeGlobal = useGlobalStore()
 const device = useDevice()
 const { locale, locales } = useI18n()
+const { currentLocaleName, otherLocales } = useLocale()
 const switchLocalePath = useSwitchLocalePath()
 
 //#region viewport
@@ -362,6 +400,7 @@ watch(
 )
 //#endregion
 
+//#region useSchemaOrg
 useSchemaOrg([
   // TODO Select Identity: https://unhead.unjs.io/schema-org/guides/identity
   defineWebSite({
@@ -369,6 +408,20 @@ useSchemaOrg([
   }),
   defineWebPage(),
 ])
+//#endregion
+
+//#region useAfterScreenResize
+//監聽 after screen resize complete
+const { screenResizeState } = useAfterScreenResize()
+watch(
+    () => screenResizeState.resizeComplete,
+    (newValue) => {
+        if (newValue) {
+            console.warn('screen resize complete')
+        }
+    },
+)
+//#endregion
 </script>
 <style lang="scss">
 @import '@/assets/scss/page/ds-guide';

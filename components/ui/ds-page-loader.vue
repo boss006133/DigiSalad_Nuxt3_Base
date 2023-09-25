@@ -1,7 +1,7 @@
 <template>
     <!-- page loader -->
-    <div class="pageLoader" v-if="storeGlobal.pageLoading">
-        <div class="pageLoader__bg"></div>
+    <div class="ds-page-loader" v-if="storeGlobal.pageLoading">
+        <div class="ds-page-loader__bg"></div>
         <div class="spinner-outer">
             <svg
                 class="spinner"
@@ -27,7 +27,7 @@ const storeGlobal = useGlobalStore()
 <style lang="scss" scoped>
 $offset: 220;
 $duration: 1.4s;
-.pageLoader {
+.ds-page-loader {
     position: fixed;
     top: 0;
     left: 0;
@@ -43,12 +43,12 @@ $duration: 1.4s;
         background: #000;
         opacity: 0.2;
     }
-    &__img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+    // &__img {
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+    //     transform: translate(-50%, -50%);
+    // }
 }
 .spinner-outer {
     position: absolute;
