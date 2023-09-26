@@ -137,6 +137,4 @@ export const useMetaHead = ({ title = '', description = '', image = '' }) => {
             },
         ],
     })
-
-    useCanonical()
 }

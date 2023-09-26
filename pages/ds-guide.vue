@@ -340,15 +340,15 @@ const keysFontSizeBase = Object.keys(fontSizeDesktop).map((key) => {
 })
 
 const seo = ref({
-    'title': 'DS Guide',
-    'description': 'DigiSalad Nuxt3 基本使用',
-    'image_url': 'https://dummyimage.com/1200x630/ccc/fff',
-}); // 資料會從 Api 來
+    title: 'DS Guide',
+    description: 'DigiSalad Nuxt3 基本使用',
+    image_url: 'https://dummyimage.com/1200x630/ccc/fff',
+}) // 資料會從 Api 來
 
 // 設定page meta
 useMetaHead({
     ...seo.value,
-});
+})
 
 const { data } = await useApiFetch('global/global')
 
@@ -398,16 +398,6 @@ watch(
         }
     },
 )
-//#endregion
-
-//#region useSchemaOrg
-useSchemaOrg([
-  // TODO Select Identity: https://unhead.unjs.io/schema-org/guides/identity
-  defineWebSite({
-    name: 'My Awesome Website',
-  }),
-  defineWebPage(),
-])
 //#endregion
 
 //#region useAfterScreenResize

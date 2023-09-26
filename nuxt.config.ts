@@ -3,20 +3,10 @@ const vite = require('./config/vite.ts')
 const i18n = require('./vender/i18n/config.ts')
 const viewport = require('./vender/nuxt-viewport/config.ts')
 const security = require('./vender/security/config.ts')
+const robots = require('./vender/robots/config.ts')
 
-const isProduction = process.env.NUXT_PUBLIC_NODE_ENV === 'production'
 const devPort = parseInt(process.env.NUXT_PUBLIC_DEV_PORT || '') ?? 3000
-const _meta_extend = [] as any
-if (!isProduction) {
-    _meta_extend.push({ hid: 'robots', name: 'robots', content: 'noindex' })
-}
-
 export default defineNuxtConfig({
-    app: {
-        head: {
-            meta: [..._meta_extend],
-        },
-    },
     css: ['~/assets/scss/index.scss'],
     modules: [
         // doc: https://vueuse.org/guide/
@@ -47,18 +37,11 @@ export default defineNuxtConfig({
     device: {
         refreshOnResize: true,
     },
-    i18n,
-    vite,
-    viewport,
     tailwindcss: {
         exposeConfig: true,
         // exposeLevel: 1,  // determines tree-shaking (optional)
     },
     postcss: {},
-    schemaOrg: {
-        host: process.env.NUXT_PUBLIC_BASE_URL,
-    },
-    security,
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#runtimeconfig
     runtimeConfig: {
         // apiUsername: '', // can be overridden by NUXT_API_USERNAME environment variable
@@ -78,4 +61,12 @@ export default defineNuxtConfig({
     build: {
         transpile: ['gsap'],
     },
+    i18n,
+    vite,
+    viewport,
+    robots,
+    schemaOrg: {
+        host: process.env.NUXT_PUBLIC_BASE_URL,
+    },
+    security,
 })

@@ -1,6 +1,6 @@
 const basicAuth = {
-    id: process.env.NUXT_PUBLIC_BASEAUTH_ID ?? null,
-    password: process.env.NUXT_PUBLIC_BASEAUTH_PASSWORD ?? null,
+    id: process.env.NUXT_PUBLIC_BASIC_AUTH_ID ?? null,
+    password: process.env.NUXT_PUBLIC_BASIC_AUTH_PASSWORD ?? null,
 }
 
 export default {
@@ -9,9 +9,9 @@ export default {
         contentSecurityPolicy: false,
     },
     basicAuth: {
-        exclude: ['/api'],
+        exclude: ['/api','/__nuxt_devtools__/client/'],
         name: basicAuth.id,
         pass: basicAuth.password,
-        enabled: process.env.NUXT_PUBLIC_BASEAUTH === 'y',
+        enabled: process.env.NUXT_PUBLIC_BASIC_AUTH === 'y',
     }
 }

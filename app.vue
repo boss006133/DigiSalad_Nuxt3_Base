@@ -16,6 +16,16 @@ useMetaHead({
     description: 'DigiSalad Nuxt3 基本使用',
 })
 
+//#region useSchemaOrg
+useSchemaOrg([
+    // TODO Select Identity: https://unhead.unjs.io/schema-org/guides/identity
+    defineWebSite({
+        name: 'My Awesome Website',
+    }),
+    defineWebPage(),
+])
+//#endregion
+
 onMounted(() => {
     toggleTransitionComplete(true)
 })
