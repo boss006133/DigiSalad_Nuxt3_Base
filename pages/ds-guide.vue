@@ -301,6 +301,34 @@
                 </p>
             </div>
         </div>
+        <!-- nuxt-simple-sitemap -->
+        <div class="cateSection">
+            <div class="cateTitle">
+                #nuxt-simple-sitemap (<a
+                    class="link-external"
+                    href="https://nuxtseo.com/sitemap/getting-started/installation"
+                    target="_blank"
+                    >nuxt-simple-sitemap</a
+                >)
+            </div>
+            <div class="cateDes">
+                <iframe src="/sitemap.xml" class="w-full h-[400px]"></iframe>
+            </div>
+        </div>
+        <!-- nuxt-schema-org -->
+        <div class="cateSection">
+            <div class="cateTitle">
+                #nuxt-schema-org (<a
+                    class="link-external"
+                    href="https://nuxtseo.com/schema-org/getting-started/installation"
+                    target="_blank"
+                    >nuxt-schema-org</a
+                >)
+            </div>
+            <div class="cateDes">
+                <SchemaOrgDebug />
+            </div>
+        </div>
     </div>
 </template>
 <script setup>
@@ -311,11 +339,16 @@ const keysFontSizeBase = Object.keys(fontSizeDesktop).map((key) => {
     return name
 })
 
+const seo = ref({
+    'title': 'DS Guide',
+    'description': 'DigiSalad Nuxt3 基本使用',
+    'image_url': 'https://dummyimage.com/1200x630/ccc/fff',
+}); // 資料會從 Api 來
+
 // 設定page meta
 useMetaHead({
-    title: 'DS Guide',
-    description: 'DigiSalad Nuxt3 基本使用',
-})
+    ...seo.value,
+});
 
 const { data } = await useApiFetch('global/global')
 
@@ -365,6 +398,16 @@ watch(
         }
     },
 )
+//#endregion
+
+//#region useSchemaOrg
+useSchemaOrg([
+  // TODO Select Identity: https://unhead.unjs.io/schema-org/guides/identity
+  defineWebSite({
+    name: 'My Awesome Website',
+  }),
+  defineWebPage(),
+])
 //#endregion
 
 //#region useAfterScreenResize
