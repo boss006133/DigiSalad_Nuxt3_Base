@@ -12,6 +12,6 @@ export default {
         exclude: ['/api'],
         name: basicAuth.id,
         pass: basicAuth.password,
-        enabled: true,
+        enabled: process.env.NUXT_PUBLIC_BASEAUTH === 'y',
     }
 }
