@@ -2,6 +2,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     const { toggleScreenResizeComplete } = useAfterScreenResize()
     const { width, height } = useWindowSize()
     const windowObj = reactive({ width, height })
+
+    //#region set --vh css variable
     const setVH = () => {
         const self = this as any
         let vh = window.innerHeight * 0.01
@@ -16,6 +18,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
         { deep: true },
     )
+    //#endregion
 
     //#region 監聽視窗after resize
     let resizeTimer, windowWidth

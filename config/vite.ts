@@ -55,7 +55,7 @@ export default {
                 ${varFonts};
                 ${varMedia};
                 ${varCustomClass};
-                @import '~/assets/scss/variables-css/index.scss';
+                @import '~/assets/scss/variables-scss/index.scss';
                 @import '~/assets/scss/functions/index.scss';
                 `,
             },

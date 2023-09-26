@@ -1,6 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import '@/assets/scss/extend-class/index';
+@import '@/assets/scss/variables-css/index';
 @import '@/assets/scss/base/index';
 @import '@/assets/scss/layout/root';
 @import '@/assets/scss/components/index';
