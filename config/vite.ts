@@ -8,10 +8,10 @@ const keysFontSizeBase = Object.keys(fontSizeDesktop)
         const name = `text-${key.substring(0, key.lastIndexOf('-'))}`
         const desktop = `${name}-d`
         const responsive = `${name}-r`
-        return `'${name}' ${desktop} ${responsive}`
+        return `'${name}':(desktop:${desktop},responsive:${responsive})`
     })
     .join(',')
-const varFonts = `$font-size-base: ${keysFontSizeBase}`
+const varFonts = `$font-size-base:(${keysFontSizeBase})`
 
 //extend media query scss variable
 const keysBreakpoints = Object.keys(breakpoints)
@@ -20,7 +20,7 @@ const keysBreakpoints = Object.keys(breakpoints)
         const maxWidth = `${breakpoints[key]}px`
         const minWidth = `${breakpoints[key] + 1}px`
         const breakpoint = key
-        return `${name}:(
+        return `'${name}':(
         max:${maxWidth},
         min:${minWidth},
         breakpoint:${breakpoint}

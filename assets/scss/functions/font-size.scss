@@ -24,3 +24,15 @@
     transform: scale(0.91666);
     transform-origin: 0 0;
 }
+
+//@debug "font-size-base: #{$media-query-list}";
+//use ex: @include fontStyle('text-h1');
+@mixin fontStyle($type) {
+    $font: map-get($font-size-base, $type);
+    $desktop: map-get($font, desktop);
+    $responsive: map-get($font, responsive);
+    @apply #{$desktop};
+    @screen max-lg {
+        @apply #{$responsive};
+    }
+}
