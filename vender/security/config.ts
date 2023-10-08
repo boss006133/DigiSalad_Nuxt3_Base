@@ -1,6 +1,6 @@
 const basicAuth = {
-    id: process.env.NUXT_PUBLIC_BASIC_AUTH_ID ?? null,
-    password: process.env.NUXT_PUBLIC_BASIC_AUTH_PASSWORD ?? null,
+    id: process.env.NUXT_BASIC_AUTH_ID ?? null,
+    password: process.env.NUXT_BASIC_AUTH_PASSWORD ?? null,
 }
 
 export default {
