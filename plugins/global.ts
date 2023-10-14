@@ -17,6 +17,9 @@ export default defineNuxtPlugin((nuxtApp) => {
                 href: url,
             },
         ],
+        htmlAttrs: {
+            ['env-production']: process.env.NODE_ENV === 'production',
+        } as any,
     }))
     //#endregion
 })

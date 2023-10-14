@@ -1,7 +1,4 @@
-import {
-    CLASSNAME_UA_PC,
-    CLASSNAME_UA_MOBILE,
-} from '~/constants/type/className-variables'
+import { CLASSNAME_UA_PC, CLASSNAME_UA_MOBILE } from '~/constants/type/className-variables'
 
 export const useMetaHead = ({ title = '', description = '', image = '' }) => {
     const { $isPc, $isMobile } = useNuxtApp()
@@ -119,6 +116,7 @@ export const useMetaHead = ({ title = '', description = '', image = '' }) => {
             lang: i18nHead.value.htmlAttrs!.lang,
             xmlns: 'http://www.w3.org/1999/xhtml',
             'xml:lang': i18nHead.value.htmlAttrs!.lang,
+            device: metaDevice.value,
         } as any,
         ...headTitle.value,
         meta: [
