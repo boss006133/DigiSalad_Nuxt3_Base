@@ -1,6 +1,6 @@
 export default {
     defaultLocale: 'en',
-    strategy: 'prefix_and_default',
+    strategy: 'prefix_except_default',
     detectBrowserLanguage: false,
     langDir: 'locales',
     lazy: true,
