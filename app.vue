@@ -9,11 +9,14 @@
 <script lang="ts" setup>
 import { useGlobalStore } from '~/store'
 const storeGlobal = useGlobalStore()
+const { $config } = useNuxtApp()
 const { toggleTransitionComplete } = useTransition()
-// 設定page meta
+
+//專案中自行替換下列參數值
 useMetaHead({
-    title: 'DigiSalad Nuxt3 基本使用',
-    description: 'DigiSalad Nuxt3 基本使用',
+    image: `${$config.public.baseURL}/image/DS-Club-square-logo.png`,
+    imageWidth: '1126',
+    imageHeight: '1034',
 })
 
 //#region useSchemaOrg

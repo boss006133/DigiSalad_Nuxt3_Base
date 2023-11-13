@@ -9,6 +9,7 @@ const devPort = parseInt(process.env.NUXT_PUBLIC_DEV_PORT || '') ?? 3000
 export default defineNuxtConfig({
     css: ['~/assets/scss/index.scss'],
     modules: [
+        '~/src/module/site-config',
         // doc: https://vueuse.org/guide/
         '@vueuse/nuxt',
         // doc: https://nuxt.com/modules/tailwindcss

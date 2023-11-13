@@ -1,6 +1,12 @@
 import { CLASSNAME_UA_PC, CLASSNAME_UA_MOBILE } from '~/constants/type/className-variables'
 
-export const useMetaHead = ({ title = '', description = '', image = '' }) => {
+export const useMetaHead = ({
+    title = '',
+    description = '',
+    image = '',
+    imageWidth = '',
+    imageHeight = '',
+}) => {
     const { $isPc, $isMobile } = useNuxtApp()
     const myTitle = ref(title)
     const myDesc = ref(description)
