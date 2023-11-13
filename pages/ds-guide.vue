@@ -63,7 +63,7 @@
                     lang:
                     <div class="inline-flex items-center pl-[10px]">
                         <NuxtLink
-                            v-for="item in locales"
+                            v-for="item in (locales as LocaleObject[])"
                             :key="item.code"
                             class="mr-3 font-medium leading-[1.3] last-of-type:mr-0"
                             :class="locale !== item.code ? 'hover:!text-black' : {}"
@@ -277,7 +277,7 @@
             </div>
         </div>
         <!-- nuxt-schema-org -->
-        <div class="cateSection">
+        <!-- <div class="cateSection">
             <div class="cateTitle">
                 #nuxt-schema-org (<a
                     class="link-external"
@@ -289,26 +289,24 @@
             <div class="cateDes">
                 <SchemaOrgDebug />
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { useGlobalStore } from '~/store'
+import type { LocaleObject } from '@nuxtjs/i18n/dist/runtime/composables'
 import fontSizeDesktop from '~/vender/tailwindcss/fontSize_desktop.json'
+const localePath = useLocalePath()
 const keysFontSizeBase = Object.keys(fontSizeDesktop).map((key) => {
     const name = `text-${key.substring(0, key.lastIndexOf('-'))}`
     return name
 })
 
-const seo = ref({
-    title: 'DS Guide',
-    description: 'DigiSalad Nuxt3 基本使用',
-    image_url: 'https://dummyimage.com/1200x630/ccc/fff',
-}) // 資料會從 Api 來
-
 // 設定page meta
 useMetaHead({
-    ...seo.value,
+    title: 'DS Guide',
+    description: 'DigiSalad Nuxt3 基本使用',
+    image: 'https://dummyimage.com/1200x630/ccc/fff',
 })
 
 //#region set page head
@@ -338,7 +336,7 @@ onMounted(() => {
         const r = `${oldBreakpoint} -> ${newBreakpoint}\r\n`
         breakpointUpdateLog.value += r
         await nextTick()
-        El_breakpointLog.scrollTo({ top: El_breakpointLog.scrollHeight })
+        El_breakpointLog?.scrollTo({ top: El_breakpointLog.scrollHeight })
     })
 })
 //#endregion

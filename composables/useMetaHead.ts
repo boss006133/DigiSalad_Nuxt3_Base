@@ -7,13 +7,23 @@ export const useMetaHead = ({
     imageWidth = '',
     imageHeight = '',
 }) => {
-    const { $isPc, $isMobile } = useNuxtApp()
+    const route = useRoute()
+    const { $isPc, $isMobile, $config } = useNuxtApp()
     const myTitle = ref(title)
     const myDesc = ref(description)
     const myImage = ref(image)
-
+    const myImageWidth = ref(imageWidth)
+    const myImageHeight = ref(imageHeight)
     const i18nHead = useLocaleHead({
         addSeoAttributes: true,
+    })
+    const hreflangs = i18nHead.value.link?.map((x) => {
+        return {
+            hid: x.hid,
+            rel: x.rel,
+            href: `${$config.public.baseURL}${x.href}`,
+            hreflang: x.hreflang,
+        }
     })
     // const { locale, locales } = useI18n()
     // const localeIso = computed(() => {
@@ -91,6 +101,20 @@ export const useMetaHead = ({
                       property: 'og:image:secure_url',
                       content: myImage.value,
                   },
+                  myImageWidth.value
+                      ? {
+                            hid: 'og:image:width',
+                            property: 'og:image:width',
+                            content: myImageWidth.value,
+                        }
+                      : {},
+                  myImageHeight.value
+                      ? {
+                            hid: 'og:image:height',
+                            property: 'og:image:height',
+                            content: myImageHeight.value,
+                        }
+                      : {},
               ]
             : []
     })
@@ -130,6 +154,16 @@ export const useMetaHead = ({
             ...metaImage.value,
             ...metaDesc.value,
             {
+                hid: 'twitter:site',
+                name: 'twitter:site',
+                content: '@digisalad_nuxt3_base',
+            },
+            {
+                hid: 'og:url',
+                property: 'og:url',
+                content: `${$config.public.baseURL}${route.fullPath}`,
+            },
+            {
                 hid: 'og:type',
                 property: 'og:type',
                 content: 'website',
@@ -140,5 +174,6 @@ export const useMetaHead = ({
                 content: 'summary',
             },
         ],
+        link: [...(hreflangs || [])],
     })
 }

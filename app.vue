@@ -13,11 +13,11 @@ const { $config } = useNuxtApp()
 const { toggleTransitionComplete } = useTransition()
 
 //專案中自行替換下列參數值
-useMetaHead({
-    image: `${$config.public.baseURL}/image/DS-Club-square-logo.png`,
-    imageWidth: '1126',
-    imageHeight: '1034',
-})
+// useMetaHead({
+//     image: `${$config.public.baseURL}/image/DS-Club-square-logo.png`,
+//     imageWidth: '1126',
+//     imageHeight: '1034',
+// })
 
 //#region useSchemaOrg
 useSchemaOrg([
