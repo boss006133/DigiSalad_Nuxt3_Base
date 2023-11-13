@@ -4,16 +4,13 @@
         <NuxtLink
             :to="localePath('/')"
             class="mb-[30px] py-[6px] px-[16px] rounded-[4px] bg-slate-700 text-[12px] text-white inline-flex items-center transition hover:bg-slate-500"
-            ><span class="pr-[10px]">←</span
-            >{{ $t('guide.btn_to_home') }}</NuxtLink
+            ><span class="pr-[10px]">←</span>{{ $t('guide.btn_to_home') }}</NuxtLink
         >
         <!-- general using -->
         <div class="cateSection">
             <div class="cateTitle">#general using</div>
             <div class="cateDes">
-                <div>
-                    $config.public.baseURL → {{ $config.public?.baseURL }}
-                </div>
+                <div>$config.public.baseURL → {{ $config.public?.baseURL }}</div>
                 <div>store.userName → {{ storeGlobal.userName }}</div>
                 <div>store.timeNow → {{ storeGlobal.timeNow }}</div>
                 <button
@@ -47,8 +44,7 @@
                     <span class="text"> /ds-guide </span>
                 </NuxtLinkLocale>
                 <span class="ml-[5px]" style="color: #04c7cd">
-                    (if the link route is same with current route, do refresh
-                    page)
+                    (if the link route is same with current route, do refresh page)
                 </span>
             </div>
         </div>
@@ -70,9 +66,7 @@
                             v-for="item in locales"
                             :key="item.code"
                             class="mr-3 font-medium leading-[1.3] last-of-type:mr-0"
-                            :class="
-                                locale !== item.code ? 'hover:!text-black' : {}
-                            "
+                            :class="locale !== item.code ? 'hover:!text-black' : {}"
                             :style="
                                 locale === item.code
                                     ? {
@@ -178,9 +172,7 @@
                 <div class="breakpoint__watch whitespace-pre-line">
                     Breakpoint updated:<br />
                     <div class="breakpoint__log">
-                        <p v-if="!breakpointUpdateLog">
-                            start to resize window to see log
-                        </p>
+                        <p v-if="!breakpointUpdateLog">start to resize window to see log</p>
                         {{ breakpointUpdateLog }}
                     </div>
                 </div>
@@ -190,18 +182,12 @@
         <div class="cateSection">
             <div class="cateTitle">#useColor (composables)</div>
             <div class="cateDes">
-                <div
-                    class="flex items-center"
-                    v-for="(item, key, index) in colors"
-                    :key="index"
-                >
+                <div class="flex items-center" v-for="(item, key, index) in colors" :key="index">
                     <span
                         class="cube mr-[6px] w-[15px] h-[15px] block"
                         :style="`background-color:${item.value};`"
                     ></span>
-                    <span class="hex" :style="`color:${item.value};`">{{
-                        item.value
-                    }}</span>
+                    <span class="hex" :style="`color:${item.value};`">{{ item.value }}</span>
                     <span class="name ml-[20px] text-[14px]">{{ key }}</span>
                 </div>
             </div>
@@ -215,11 +201,7 @@
                 </span>
             </div>
             <div class="cateDes">
-                <div
-                    v-for="(value, index) in keysFontSizeBase"
-                    :key="index"
-                    class="mb-[5px]"
-                >
+                <div v-for="(value, index) in keysFontSizeBase" :key="index" class="mb-[5px]">
                     <p :class="`${value}`">DigiSalad 正文文本 {{ value }}</p>
                 </div>
             </div>
@@ -229,75 +211,54 @@
             <div class="cateTitle">#styling button</div>
             <div class="cateDes">
                 <div class="flex items-center mb-[20px]">
-                    <button class="btn btn-primary--sm mx-[15px] ml-0">
-                        Text
-                    </button>
+                    <button class="btn btn-primary--sm mx-[15px] ml-0">Text</button>
                     <button class="btn btn-primary--md mx-[15px]">Text</button>
                     <button class="btn btn-primary--lg mx-[15px]">Text</button>
                 </div>
                 <div class="flex items-center">
-                    <button class="btn btn-primary--sm mx-[15px] ml-0" disabled>
-                        Text
-                    </button>
-                    <button class="btn btn-primary--md mx-[15px]" disabled>
-                        Text
-                    </button>
-                    <button class="btn btn-primary--lg mx-[15px]" disabled>
-                        Text
-                    </button>
+                    <button class="btn btn-primary--sm mx-[15px] ml-0" disabled>Text</button>
+                    <button class="btn btn-primary--md mx-[15px]" disabled>Text</button>
+                    <button class="btn btn-primary--lg mx-[15px]" disabled>Text</button>
                 </div>
             </div>
         </div>
         <!-- styling by classname from scss file -->
         <div class="cateSection">
             <div class="cateTitle">#styling by classname from scss file</div>
-            <div class="cateDes !text-[25px]" style="color: #00c6ce">
-                DigiSalad Nuxt3 Base
-            </div>
+            <div class="cateDes !text-[25px]" style="color: #00c6ce">DigiSalad Nuxt3 Base</div>
         </div>
         <!-- styling by tailwindcss classname inline directly -->
         <div class="cateSection">
-            <div class="cateTitle">
-                #styling by tailwindcss classname inline directly
-            </div>
+            <div class="cateTitle">#styling by tailwindcss classname inline directly</div>
             <div class="cateDes apply-tailwindcss">DigiSalad Nuxt3 Base</div>
         </div>
         <!-- styling by RWD(@screen min-xl) from scss file -->
         <div class="cateSection">
-            <div class="cateTitle">
-                #styling by RWD(@screen min-xl) from scss file
-            </div>
+            <div class="cateTitle">#styling by RWD(@screen min-xl) from scss file</div>
             <div class="cateDes apply-screen-minXl">DigiSalad Nuxt3 Base</div>
         </div>
         <!-- styling by tailwindcss line-clamp-{nummber} -->
         <div class="cateSection">
             <div class="cateTitle">
                 #styling by tailwindcss
-                <span class="text-[#c97979] text-[16px]"
-                    >class="line-clamp-{nummber}"
-                </span>
+                <span class="text-[#c97979] text-[16px]">class="line-clamp-{nummber}" </span>
             </div>
             <div class="cateDes">
                 <p class="line-clamp-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                    beatae cumque tempore eveniet quae reiciendis architecto a
-                    ad distinctio nisi. Facere animi sapiente aut soluta!
-                    Veniam, enim? Earum, repudiandae ducimus. A cum dolor
-                    eligendi asperiores cumque obcaecati blanditiis saepe, quas
-                    ducimus, magni neque nam ut facilis iusto dolores accusamus,
-                    necessitatibus nihil molestiae reprehenderit reiciendis
-                    atque porro! Consequuntur magnam itaque ad? Quasi ducimus
-                    beatae eveniet labore. Praesentium dolores omnis ad fugiat
-                    corrupti, laudantium qui labore itaque eaque placeat ipsa
-                    odio? Molestias deserunt ipsum beatae illum iusto iure animi
-                    alias exercitationem illo. Vero fugit, laboriosam omnis est
-                    enim quod adipisci, ad veniam modi porro molestiae ipsam
-                    provident cumque vel dicta neque? Voluptates assumenda sint
-                    rerum rem, placeat minus possimus ad. Modi, ab. Ut tempora
-                    inventore, dolores commodi quod fuga itaque a veritatis
-                    error eligendi sunt, illo eveniet tenetur natus eos ipsa ab
-                    sequi libero ipsum voluptas voluptatibus. Ex iusto inventore
-                    totam velit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit beatae cumque
+                    tempore eveniet quae reiciendis architecto a ad distinctio nisi. Facere animi
+                    sapiente aut soluta! Veniam, enim? Earum, repudiandae ducimus. A cum dolor
+                    eligendi asperiores cumque obcaecati blanditiis saepe, quas ducimus, magni neque
+                    nam ut facilis iusto dolores accusamus, necessitatibus nihil molestiae
+                    reprehenderit reiciendis atque porro! Consequuntur magnam itaque ad? Quasi
+                    ducimus beatae eveniet labore. Praesentium dolores omnis ad fugiat corrupti,
+                    laudantium qui labore itaque eaque placeat ipsa odio? Molestias deserunt ipsum
+                    beatae illum iusto iure animi alias exercitationem illo. Vero fugit, laboriosam
+                    omnis est enim quod adipisci, ad veniam modi porro molestiae ipsam provident
+                    cumque vel dicta neque? Voluptates assumenda sint rerum rem, placeat minus
+                    possimus ad. Modi, ab. Ut tempora inventore, dolores commodi quod fuga itaque a
+                    veritatis error eligendi sunt, illo eveniet tenetur natus eos ipsa ab sequi
+                    libero ipsum voluptas voluptatibus. Ex iusto inventore totam velit.
                 </p>
             </div>
         </div>
@@ -349,6 +310,12 @@ const seo = ref({
 useMetaHead({
     ...seo.value,
 })
+
+//#region set page head
+useHead(() => ({
+    meta: [{ hid: 'robots', name: 'robots', content: 'noindex' }],
+}))
+//#endregion
 
 const { data } = await useApiFetch('global/global')
 
