@@ -11,7 +11,7 @@ class AppTransition {
     constructor(options?: Partial<AppTransition>) {
         Object.assign(this, options)
 
-        process.client && this.init()
+        //process.client && this.init()
     }
 
     //取得動畫容器
@@ -20,7 +20,7 @@ class AppTransition {
         return c
     }
 
-    private init = () => {
+    public init = () => {
         const el = this.container
         el?.style.setProperty('--duration_open', `${this.durationOpen}s`)
         el?.style.setProperty('--duration_close', `${this.durationClose}s`)

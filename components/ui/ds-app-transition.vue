@@ -12,7 +12,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    height: calc(var(--vh) * 100);
+    height: 100svh;
     background: rgb(0, 0, 0, 0.6);
     z-index: 9999;
     opacity: 0;

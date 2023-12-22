@@ -1,9 +1,6 @@
 <template>
-    <NuxtLayout id="nuxt-layout">
-        <NuxtLoadingIndicator />
-        <NuxtPage :key="storeGlobal.pageKey" />
-        <UiDsAppTransition />
-        <UiDsPageLoader />
+    <NuxtLayout>
+        <NuxtPage class="nuxt-page" />
     </NuxtLayout>
 </template>
 <script lang="ts" setup>

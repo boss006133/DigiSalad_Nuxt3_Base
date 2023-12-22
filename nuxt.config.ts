@@ -4,7 +4,6 @@ const i18n = require('./vender/i18n/config.ts')
 const viewport = require('./vender/nuxt-viewport/config.ts')
 const security = require('./vender/security/config.ts')
 const robots = require('./vender/robots/config.ts')
-// const gtm = require('./vender/gtm/config.ts')
 
 const devPort = parseInt(process.env.NUXT_PUBLIC_DEV_PORT || '') ?? 3000
 export default defineNuxtConfig({
@@ -47,12 +46,15 @@ export default defineNuxtConfig({
         // apiUsername: '', // can be overridden by NUXT_API_USERNAME environment variable
         // apiPassword: '',
         // siteUrl: process.env.NUXT_PUBLIC_BASE_URL,
+        basicAuthId: '',
+        basicAuthPassword: '',
         public: {
             // appBuildVersion: process.env.APP_BUILD_VERSION,
             apiKey: '',
             baseURL: `http://localhost:${devPort}`, // can be overridden by NUXT_PUBLIC_BASE_URL environment variable
             apiBase: `http://localhost:${devPort}/api`,
             nodeEnv: '',
+            basicAuth: '',
             gtmId: '',
         },
     },
@@ -64,7 +66,6 @@ export default defineNuxtConfig({
     vite,
     viewport,
     robots,
-    //gtm,
     schemaOrg: {
         host: process.env.NUXT_PUBLIC_BASE_URL,
     },

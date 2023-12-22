@@ -11,6 +11,17 @@ export default defineNuxtPlugin(() => {
     /* 行動版 */
     const isMobile = computed(() => !device.isDesktop)
 
+    const jsRandom = (min: number, max: number): number => {
+        return Math.random() * (max - min) + min
+    }
+    const jsRandomFloor = (min: number, max: number): number => {
+        return Math.floor(Math.random() * (max - min) + min)
+    }
+    const deepClone = (data) => {
+        if (data && typeof data === 'object') return JSON.parse(JSON.stringify(data))
+        else return null
+    }
+
     /**
      * 取得乾淨的(移除最後斜線) route path
      * @param to
@@ -27,9 +38,7 @@ export default defineNuxtPlugin(() => {
      * @returns string | null
      */
     const getToRealName = (toName) => {
-        return typeof toName === 'string'
-            ? toName?.split(`___${$i18n.locale.value}`)[0]
-            : null
+        return typeof toName === 'string' ? toName?.split(`___${$i18n.locale.value}`)[0] : null
     }
 
     /**
@@ -77,6 +86,9 @@ export default defineNuxtPlugin(() => {
             getToRealPath,
             getToRealName,
             refreshPage,
+            deepClone,
+            jsRandom,
+            jsRandomFloor,
         },
     }
 })
