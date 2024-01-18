@@ -1,36 +1,64 @@
 <template>
-    <NuxtLayout id="nuxt-layout">
-        <NuxtLoadingIndicator />
-        <NuxtPage :key="storeGlobal.pageKey" />
-        <UiDsAppTransition />
-        <UiDsPageLoader />
+    <NuxtLoadingIndicator />
+    <NuxtLayout>
+        <NuxtPage class="nuxt-page" />
     </NuxtLayout>
 </template>
-<script lang="ts" setup>
+<script setup lang="ts">
+import type { LocaleObject } from '@nuxtjs/i18n/dist/runtime/composables'
+import { storeToRefs } from 'pinia'
 import { useGlobalStore } from '~/store'
+import colors from '@/vender/unocss/colors.json'
 const storeGlobal = useGlobalStore()
-const { $config } = useNuxtApp()
-const { toggleTransitionComplete } = useTransition()
+const { pageKey } = storeToRefs(storeGlobal)
+const { $Nav, $config } = useNuxtApp()
+const { t } = useI18n()
+const schemaPty = useSchemaProperty()
+const metaTitle = t('seo.home.title')
 
-//專案中自行替換下列參數值
-// useMetaHead({
-//     image: `${$config.public.baseURL}/image/DS-Club-square-logo.png`,
-//     imageWidth: '1126',
-//     imageHeight: '1034',
-// })
+useMetaHead({
+    image: `${$config.public.baseURL}/image/DS-Club-square-logo.png`,
+    imageWidth: '1126',
+    imageHeight: '1043',
+})
 
 //#region useSchemaOrg
 useSchemaOrg([
     // TODO Select Identity: https://unhead.unjs.io/schema-org/guides/identity
     defineWebSite({
-        name: 'My Awesome Website',
+        name: metaTitle,
+    }),
+    defineLocalBusiness({
+        '@type': ['ProfessionalService'],
+        name: metaTitle,
+        logo: schemaPty.logo,
+        telephone: schemaPty.telephone,
+        email: schemaPty.businessEmail,
+        address: schemaPty.address,
+        openingHoursSpecification: schemaPty.openingHoursSpecification,
     }),
     defineWebPage(),
 ])
 //#endregion
 
-onMounted(() => {
-    toggleTransitionComplete(true)
+onMounted(async () => {
+    await nextTick()
 })
+
+onUnmounted(() => {
+    //清除全域Timeout
+    window.globalTimeout.forEach((timeout) => {
+        clearTimeout(timeout)
+    })
+    window.globalTimeout = []
+})
+
+watch(
+    () => pageKey.value,
+    async (newValue) => {
+        await nextTick()
+        $Nav.close()
+    },
+)
 </script>
-<style></style>
+<style lang="scss"></style>

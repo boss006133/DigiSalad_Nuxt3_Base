@@ -1,6 +1,7 @@
-import { screensDefault as breakpoints } from '../vender/tailwindcss/screens'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import { screensDefault as breakpoints } from '../vender/unocss/screens'
 import * as customVariables from '../constants/type/className-variables'
-const fontSizeDesktop = require('../vender/tailwindcss/fontSize_desktop.json')
+import fontSizeDesktop from '../vender/unocss/fontSize_desktop'
 
 //extend font size scss variable
 const keysFontSizeBase = Object.keys(fontSizeDesktop)
@@ -43,7 +44,7 @@ const varCustomClass = Object.keys(customVariables)
                 return `${str}`
             })
             .join('')
-        return `$${name}:'.${value}'`
+        return `$${name}:'${value}'`
     })
     .join(';')
 
@@ -55,10 +56,16 @@ export default {
                 ${varFonts};
                 ${varMedia};
                 ${varCustomClass};
-                @import '~/assets/scss/variables-scss/index.scss';
-                @import '~/assets/scss/functions/index.scss';
+                @import '~/assets/scss/variables-scss/index.scss';              
+                @import '~/assets/scss/functions/index.scss';           
                 `,
             },
+        },
+    },
+    plugins: [vuetify({ autoImport: true })],
+    vue: {
+        template: {
+            transformAssetUrls,
         },
     },
 }

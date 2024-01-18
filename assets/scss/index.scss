@@ -1,8 +1,13 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import '@unocss/reset/tailwind.css';
+@import 'node_modules/locomotive-scroll/dist/locomotive-scroll';
+@import '@egjs/vue3-flicking/dist/flicking.css';
 @import '@/assets/scss/extend-class/index';
 @import '@/assets/scss/variables-css/index';
+@import '@/assets/scss/sweetalert2/index';
+@import '@/assets/scss/vuetify-custom/index';
+@import '@/assets/scss/animations/index';
 @import '@/assets/scss/base/index';
 @import '@/assets/scss/layout/root';
+@import '@/assets/scss/layout/global';
+@import '@/assets/scss/layout/custom';
 @import '@/assets/scss/components/index';

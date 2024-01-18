@@ -1,0 +1,69 @@
+html {
+    .v-tabs {
+        .v-tab {
+            @apply text-slate-600;
+            // @include fontStyle('text-p1');
+            text-transform: capitalize;
+            height: auto;
+            min-height: 26px;
+            margin-top: 24px;
+            padding-left: 0;
+            transition: padding 0.25s ease;
+            @media (hover: hover) {
+                &:hover {
+                    @apply text-blue-400;
+                }
+            }
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+            &.v-tab--selected {
+                @apply text-slate-900;
+                // @include fontStyle('text-p1-bold');
+                padding-left: 16px;
+            }
+            .v-btn__overlay,
+            .v-btn__underlay {
+                display: none;
+            }
+        }
+
+        &.v-slide-group--vertical {
+            .v-tab__slider {
+                @apply bg-blue-400 #{!important};
+                border-radius: 99em;
+                width: 5px;
+            }
+        }
+        // &.ds-v-tabs {
+        //     background: #fff;
+        //     border-radius: 99em;
+        //     height: 42px;
+        //     padding: 7px 6px;
+        //     .v-tab {
+        //         @apply text-blue-500;
+        //         @include fontStyle('text-bl2');
+        //         letter-spacing: normal;
+        //         text-transform: capitalize;
+        //         min-width: 68px;
+        //         height: 28px;
+        //         padding: 0 12px;
+        //         align-self: center;
+        //         &.v-tab--selected {
+        //             color: #fff;
+        //         }
+        //         .v-btn__overlay,
+        //         .v-btn__underlay {
+        //             border-radius: 99em;
+        //         }
+        //     }
+        //     .v-tab__slider {
+        //         @apply bg-blue-500 #{!important};
+        //         height: 100%;
+        //         border-radius: 99em;
+        //         z-index: -1;
+        //     }
+        // }
+    }
+}

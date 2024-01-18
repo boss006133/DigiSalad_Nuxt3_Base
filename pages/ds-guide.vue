@@ -63,7 +63,7 @@
                     lang:
                     <div class="inline-flex items-center pl-[10px]">
                         <NuxtLink
-                            v-for="item in (locales as LocaleObject[])"
+                            v-for="item in (locales.value as LocaleObject[])"
                             :key="item.code"
                             class="mr-3 font-medium leading-[1.3] last-of-type:mr-0"
                             :class="locale !== item.code ? 'hover:!text-black' : {}"
@@ -294,8 +294,10 @@
 </template>
 <script lang="ts" setup>
 import { useGlobalStore } from '~/store'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { LocaleObject } from '@nuxtjs/i18n/dist/runtime/composables'
-import fontSizeDesktop from '~/vender/tailwindcss/fontSize_desktop.json'
+import fontSizeDesktop from '~/vender/unocss/fontSize_desktop'
+const { toggleWidgetsBlockComplete } = useWidgetsBlocksEvents()
 const localePath = useLocalePath()
 const keysFontSizeBase = Object.keys(fontSizeDesktop).map((key) => {
     const name = `text-${key.substring(0, key.lastIndexOf('-'))}`
@@ -315,7 +317,7 @@ useHead(() => ({
 }))
 //#endregion
 
-const { data } = await useApiFetch('global/global')
+// const { data, error } = await useApi.s3.global()
 
 const { width: winWidth, height: winHeight } = useWindowSize()
 const colors = useColor()
@@ -338,6 +340,8 @@ onMounted(() => {
         await nextTick()
         El_breakpointLog?.scrollTo({ top: El_breakpointLog.scrollHeight })
     })
+
+    toggleWidgetsBlockComplete(true)
 })
 //#endregion
 
@@ -349,20 +353,6 @@ onMounted(() => {
 //     datas.value = data
 //     console.warn('datas.value', datas.value)
 // })
-//#endregion
-
-//#region useTransition
-const { transitionState } = useTransition()
-//監聽 page transition complete
-watch(
-    () => transitionState.transitionComplete,
-    (newValue) => {
-        if (newValue) {
-            //page transition complete
-            console.warn('page transition complete')
-        }
-    },
-)
 //#endregion
 
 //#region useAfterScreenResize

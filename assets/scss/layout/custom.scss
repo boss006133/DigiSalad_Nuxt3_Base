@@ -1,0 +1,19 @@
+.nuxt-loading-indicator {
+    background: linear-gradient(
+        91deg,
+        theme('colors.red.primary') 0%,
+        theme('colors.blue.primary') 100%
+    ) !important;
+}
+img {
+    &::selection {
+        background-color: transparent !important;
+    }
+    &[data-manual-lazy] {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border: none;
+        @include nuxt_lazyImageStyle();
+    }
+}

@@ -25,14 +25,25 @@
     transform-origin: 0 0;
 }
 
+@function get-font-list($label) {
+    @each $list in $font-size-base {
+        @if nth($list, 1) == $label {
+            @return $list;
+        }
+    }
+    @return null;
+}
+
 //@debug "font-size-base: #{$media-query-list}";
 //use ex: @include fontStyle('text-h1');
 @mixin fontStyle($type) {
     $font: map-get($font-size-base, $type);
-    $desktop: map-get($font, desktop);
-    $responsive: map-get($font, responsive);
-    @apply #{$desktop};
-    @screen max-lg {
-        @apply #{$responsive};
+    @if $font {
+        $desktop: map-get($font, desktop);
+        $responsive: map-get($font, responsive);
+        @apply #{$desktop};
+        @screen lt-lg {
+            @apply #{$responsive};
+        }
     }
 }

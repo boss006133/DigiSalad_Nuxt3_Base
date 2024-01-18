@@ -1,6 +1,9 @@
+import 'uno.css'
+import { createGtm } from '@gtm-support/vue-gtm'
 export default defineNuxtPlugin((nuxtApp) => {
     const { $config } = useNuxtApp()
     const isProduction = $config.public.nodeEnv === 'production'
+    const isDev = $config.public.nodeEnv === 'development'
     const device = useDevice()
     const route = useRoute()
     const req = useRequestURL()
@@ -10,18 +13,18 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
 
     //請自行調整所需檔案和檔名
+    const favicon_customSizes = ['16', '32', '96'].map((x) => {
+        const ratio = `${x}x${x}`
+        return {
+            rel: 'icon',
+            type: 'image/png',
+            href: `${req.origin}/favicon_${ratio}.png`,
+            sizes: ratio,
+        }
+    })
     const favicon = [
-        // { rel: 'shortcut icon', type: 'image/x-icon', href: `${req.origin}/favicon.ico` },
-        // {
-        //     rel: 'icon',
-        //     href: `${req.origin}/favicon_32x32.png`,
-        //     size: '32x32',
-        // },
-        // {
-        //     rel: 'icon',
-        //     href: `${req.origin}/favicon_48x48.png`,
-        //     size: '48x48',
-        // },
+        { rel: 'shortcut icon', type: 'image/x-icon', href: `${req.origin}/favicon.ico` },
+        ...favicon_customSizes,
     ]
 
     //#region set global head
@@ -36,4 +39,32 @@ export default defineNuxtPlugin((nuxtApp) => {
         } as any,
     }))
     //#endregion
+
+    //#region create gtm
+    const gtmId = $config.public.gtmId
+    try {
+        nuxtApp.vueApp.use(
+            createGtm({
+                id: gtmId,
+                defer: false,
+                compatibility: false,
+                enabled: isProduction,
+                debug: !isProduction,
+                loadScript: true,
+                vueRouter: useRouter(),
+                trackOnNextTick: false,
+            }) as any,
+        )
+    } catch (error) {
+        if (!isDev && process.client) console.error('gtm failed', error)
+    }
+    //#endregion
+
+    Number.prototype.pad = function (size) {
+        var s = String(this)
+        while (s.length < (size || 2)) {
+            s = '0' + s
+        }
+        return s
+    }
 })

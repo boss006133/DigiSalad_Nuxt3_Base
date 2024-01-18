@@ -1,13 +1,13 @@
 // 產生共用fontSize className
 // ※$font-size-base => 由~/config/vite.ts產生,可使用下方@debug方式查看
 // ※scss擴充使用 => ex: .xxx{ @extend .text-h1; }
-// @debug "font-size-base: #{$font-size-base}";
+// @debug 'font-size-base: #{$font-size-base}';
 @each $name, $value in $font-size-base {
     $desktop: map-get($value, desktop);
     $responsive: map-get($value, responsive);
     .#{$name} {
         @apply #{$desktop};
-        @screen max-lg {
+        @screen lt-lg {
             @apply #{$responsive};
         }
     }

@@ -1,28 +1,36 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const vite = require('./config/vite.ts')
-const i18n = require('./vender/i18n/config.ts')
-const viewport = require('./vender/nuxt-viewport/config.ts')
-const security = require('./vender/security/config.ts')
-const robots = require('./vender/robots/config.ts')
-// const gtm = require('./vender/gtm/config.ts')
+import vite from './config/vite'
+import i18n from './vender/i18n/config'
+import viewport from './vender/nuxt-viewport/config'
+import security from './vender/security/config'
+import robots from './vender/robots/config'
+import googleFonts from './vender/googleFonts/config'
 
 const devPort = parseInt(process.env.NUXT_PUBLIC_DEV_PORT || '') ?? 3000
+
 export default defineNuxtConfig({
-    css: ['~/assets/scss/index.scss'],
+    typescript: {
+        typeCheck: true,
+    },
+    css: [
+        'vuetify/styles',
+        //'vuetify/lib/styles/main.sass',
+        // '@mdi/font/css/materialdesignicons.min.css',
+        '~/assets/scss/index.scss',
+    ],
     modules: [
-        '~/src/module/site-config',
-        // doc: https://vueuse.org/guide/
-        '@vueuse/nuxt',
-        // doc: https://nuxt.com/modules/tailwindcss
-        '@nuxtjs/tailwindcss',
         // doc: https://v8.i18n.nuxtjs.org/
         '@nuxtjs/i18n',
+        // doc: https://vueuse.org/guide/
+        '@vueuse/nuxt',
+        // doc: https://unocss.dev/
+        '@unocss/nuxt',
         // doc: https://pinia.vuejs.org/ssr/nuxt.html
         '@pinia/nuxt',
         // doc: https://nuxt.com/modules/simple-robots
         'nuxt-simple-robots',
-        // doc: https://nuxt.com/modules/simple-sitemap
-        'nuxt-simple-sitemap',
+        // doc: https://nuxtseo.com/sitemap/releases/v5
+        '@nuxtjs/sitemap',
         // doc: https://www.npmjs.com/package/nuxt-schema-org
         'nuxt-schema-org',
         // doc: https://nuxt.com/modules/device
@@ -31,8 +39,10 @@ export default defineNuxtConfig({
         'nuxt-viewport',
         // doc: https://nuxt-security.vercel.app/
         'nuxt-security',
-        // doc: https://github.com/zadigetvoltaire/nuxt-gtm
-        //'@zadigetvoltaire/nuxt-gtm',
+        // https://google-fonts.nuxtjs.org/
+        '@nuxtjs/google-fonts',
+        // https://github.com/fumeapp/dayjs
+        'dayjs-nuxt',
     ],
     // doc: https://nuxt.com/docs/api/configuration/nuxt-config#postcss
     devServer: {
@@ -47,30 +57,35 @@ export default defineNuxtConfig({
         // apiUsername: '', // can be overridden by NUXT_API_USERNAME environment variable
         // apiPassword: '',
         // siteUrl: process.env.NUXT_PUBLIC_BASE_URL,
+        basicAuthId: '',
+        basicAuthPassword: '',
         public: {
             // appBuildVersion: process.env.APP_BUILD_VERSION,
             apiKey: '',
             baseURL: `http://localhost:${devPort}`, // can be overridden by NUXT_PUBLIC_BASE_URL environment variable
-            apiBase: `http://localhost:${devPort}/api`,
+            apiBaseS3Preview: `http://localhost:${devPort}/api`,
+            apiBaseS3Publish: `http://localhost:${devPort}/api`,
+            apiBaseBackend: `http://localhost:${devPort}/api`,
             nodeEnv: '',
+            basicAuth: '',
             gtmId: '',
         },
     },
     devtools: { enabled: true },
     build: {
-        transpile: ['gsap'],
+        transpile: ['gsap', 'vuetify'],
     },
+    // @ts-ignore
+    robots,
+    // @ts-ignore
     i18n,
     vite,
     viewport,
-    robots,
-    //gtm,
     schemaOrg: {
+        // @ts-ignore
         host: process.env.NUXT_PUBLIC_BASE_URL,
     },
+    // @ts-ignore
     security,
-    tailwindcss: {
-        exposeConfig: true,
-        // exposeLevel: 1,  // determines tree-shaking (optional)
-    },
+    googleFonts,
 })

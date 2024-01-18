@@ -2,6 +2,7 @@ import { reactive } from 'vue'
 
 const screenResizeState = reactive({
     resizeComplete: false,
+    resizing: 0,
 })
 
 export const useAfterScreenResize = () => {
@@ -9,8 +10,13 @@ export const useAfterScreenResize = () => {
         screenResizeState.resizeComplete = value
     }
 
+    const toggleScreenResizing = () => {
+        screenResizeState.resizing++
+    }
+
     return {
         screenResizeState,
         toggleScreenResizeComplete,
+        toggleScreenResizing,
     }
 }

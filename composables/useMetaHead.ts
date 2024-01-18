@@ -8,6 +8,7 @@ export const useMetaHead = ({
     imageHeight = '',
 }) => {
     const route = useRoute()
+    const localePath = useLocalePath()
     const { $isPc, $isMobile, $config } = useNuxtApp()
     const myTitle = ref(title)
     const myDesc = ref(description)
@@ -156,7 +157,7 @@ export const useMetaHead = ({
             {
                 hid: 'twitter:site',
                 name: 'twitter:site',
-                content: '@digisalad_nuxt3_base',
+                content: '@digisaladclub',
             },
             {
                 hid: 'og:url',
