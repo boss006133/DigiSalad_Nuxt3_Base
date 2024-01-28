@@ -29,10 +29,12 @@
 //use ex: @include fontStyle('text-h1');
 @mixin fontStyle($type) {
     $font: map-get($font-size-base, $type);
-    $desktop: map-get($font, desktop);
-    $responsive: map-get($font, responsive);
-    @apply #{$desktop};
-    @screen max-lg {
-        @apply #{$responsive};
+    @if $font {
+        $desktop: map-get($font, desktop);
+        $responsive: map-get($font, responsive);
+        @apply #{$desktop};
+        @screen lt-lg {
+            @apply #{$responsive};
+        }
     }
 }

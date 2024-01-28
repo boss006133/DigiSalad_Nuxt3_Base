@@ -1,5 +1,5 @@
+import 'uno.css'
 import { createGtm } from '@gtm-support/vue-gtm'
-
 export default defineNuxtPlugin((nuxtApp) => {
     const { $config } = useNuxtApp()
     const isProduction = $config.public.nodeEnv === 'production'
@@ -12,10 +12,8 @@ export default defineNuxtPlugin((nuxtApp) => {
         _meta_extend.push({ hid: 'robots', name: 'robots', content: 'noindex' })
     }
 
-    /**
-     * favicon_customSizes 請自行調整所需檔案 size array
-     */
-    const favicon_customSizes = ['32', '48'].map((x) => {
+    //請自行調整所需檔案和檔名
+    const favicon_customSizes = ['16', '32', '96'].map((x) => {
         const ratio = `${x}x${x}`
         return {
             rel: 'icon',
@@ -26,7 +24,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     })
     const favicon = [
         { rel: 'shortcut icon', type: 'image/x-icon', href: `${req.origin}/favicon.ico` },
-        //...favicon_customSizes,
+        ...favicon_customSizes,
     ]
 
     //#region set global head
@@ -55,10 +53,23 @@ export default defineNuxtPlugin((nuxtApp) => {
                 loadScript: true,
                 vueRouter: useRouter(),
                 trackOnNextTick: false,
-            }),
+            }) as any,
         )
     } catch (error) {
         if (!isDev && process.client) console.error('gtm failed', error)
     }
     //#endregion
+
+    Number.prototype.pad = function (size) {
+        var s = String(this)
+        while (s.length < (size || 2)) {
+            s = '0' + s
+        }
+        return s
+    }
+
+    String.prototype.newline = function () {
+        var s = String(this)
+        return s.replace(/\r\n/g, '<br>')
+    }
 })

@@ -1,3 +1,8 @@
+/**
+ * 將page api 取到的data進行解構
+ * @param data data from page api
+ * @returns
+ */
 export function useWidgetsData(data) {
     const myData = computed(() => data.value.data)
     const widgetsOrder = computed(() => myData.value.widgets_order)

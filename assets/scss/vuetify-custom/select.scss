@@ -1,0 +1,26 @@
+.v-select {
+    $append-inner-icon-w: 22;
+    .v-select__menu-icon {
+        &.ds-icon {
+            display: block;
+            width: calc($append-inner-icon-w * 1px);
+            min-width: calc($append-inner-icon-w * 1px);
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .v-select__selection {
+        @apply text-black;
+        // @include fontStyle('text-p1');
+    }
+
+    &:hover {
+        .v-field--variant-filled {
+            .v-field__overlay {
+                background-color: #fdfdfd !important;
+            }
+        }
+    }
+}

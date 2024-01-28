@@ -1,0 +1,65 @@
+definitions:
+    steps:
+        - step: &npm-install-and-ecr-push-and-eb-deploy
+            name: npm install & ECR push & EB deploy
+            image: node:18-alpine
+            caches:
+                - node
+                - docker
+            script:
+                - npm config set fetch-retry-maxtimeout 600000 -g && npm ci
+                - npm run build
+                - docker build -f ./.bitbucket/Dockerfile.bitbucket -t $AWS_ECR_IMAGE_NAME:$BITBUCKET_BRANCH$BITBUCKET_TAG-$BITBUCKET_COMMIT -t $AWS_ECR_IMAGE_NAME:$BITBUCKET_BRANCH$BITBUCKET_TAG .output
+
+                - pipe: atlassian/aws-ecr-push-image:2.2.0
+                  variables:
+                    IMAGE_NAME: $AWS_ECR_IMAGE_NAME
+                    TAGS: '$BITBUCKET_BRANCH$BITBUCKET_TAG-$BITBUCKET_COMMIT $BITBUCKET_BRANCH$BITBUCKET_TAG'
+
+                - printenv | grep -E "AWS_APPLICATION_NAME|AWS_ENVIRONMENT_NAME|BITBUCKET_BUILD_NUMBER" | sed 's/\(^[^=]*\)=\(.*\)/\1="\2"/' > .bitbucket-pipeline-envs
+                - sed -i "s/<IMAGE_URL>/$AWS_ECR_IMAGE_URL/g; s/<IMAGE_NAME>/$AWS_ECR_IMAGE_NAME/g; s/<IMAGE_TAG>/$BITBUCKET_BRANCH$BITBUCKET_TAG-$BITBUCKET_COMMIT/g" .eb/docker-compose.yml
+                - apk update && apk add zip
+                - cd .eb
+                - zip -r application.zip .
+
+                - pipe: atlassian/aws-elasticbeanstalk-deploy:1.3.0
+                  variables:
+                    APPLICATION_NAME: $AWS_APPLICATION_NAME
+                    ENVIRONMENT_NAME: $AWS_ENVIRONMENT_NAME
+                    S3_BUCKET: $AWS_S3_BUCKET
+                    ZIP_FILE: 'application.zip'
+                    VERSION_LABEL: 'build-$BITBUCKET_BUILD_NUMBER'
+                    DESCRIPTION: 'build-$BITBUCKET_BUILD_NUMBER-$BITBUCKET_BRANCH$BITBUCKET_TAG'
+                    COMMAND: '$EB_DEPLOY_COMMAND'
+            artifacts:
+                - .bitbucket-pipeline-envs
+
+        - step: &eb-release
+            name: Release from EB (Production only)
+            script:
+                - source .bitbucket-pipeline-envs && rm .bitbucket-pipeline-envs
+                - pipe: atlassian/aws-elasticbeanstalk-deploy:1.3.0
+                  variables:
+                    APPLICATION_NAME: $AWS_APPLICATION_NAME
+                    ENVIRONMENT_NAME: $AWS_ENVIRONMENT_NAME
+                    VERSION_LABEL: 'build-$BITBUCKET_BUILD_NUMBER'
+                    COMMAND: 'deploy-only'
+
+pipelines:
+    branches:
+        qa:
+            - step:
+                deployment: qa
+                <<: *npm-install-and-ecr-push-and-eb-deploy
+        uat:
+            - step:
+                deployment: uat
+                <<: *npm-install-and-ecr-push-and-eb-deploy
+    tags:
+        release-v*:
+            - step:
+                deployment: prod
+                <<: *npm-install-and-ecr-push-and-eb-deploy
+            - step:
+                trigger: manual
+                <<: *eb-release

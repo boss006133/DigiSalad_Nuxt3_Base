@@ -1,0 +1,17 @@
+html {
+}
+
+[data-scroll-class='#{$inViewTextFadeinUp}'] {
+    > * {
+        opacity: 0;
+        transform: translate(0, 30px);
+        transition: all 1s $animeCubic1;
+    }
+
+    .#{$isReady} &.#{$inViewTextFadeinUp} {
+        > * {
+            opacity: 1;
+            transform: none !important;
+        }
+    }
+}

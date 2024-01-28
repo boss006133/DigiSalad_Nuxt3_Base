@@ -1,7 +1,0 @@
-{
-    "global": {
-        "url": "global/load",
-        "isLocal": false,
-        "method": "get"
-    }
-}

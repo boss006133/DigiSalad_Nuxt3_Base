@@ -1,12 +1,10 @@
-@layer base {
-    html {
-        @apply font-en;
+html.ds-app {
+    @apply font-en;
 
-        &[lang^='zh-HK'] {
-            @apply font-tc;
-        }
-        &[lang^='zh-CN'] {
-            @apply font-sc;
-        }
+    &[lang^='zh-HK'] {
+        @apply font-tc;
+    }
+    &[lang^='zh-CN'] {
+        @apply font-sc;
     }
 }

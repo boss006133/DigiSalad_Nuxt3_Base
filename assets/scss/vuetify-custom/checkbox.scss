@@ -1,0 +1,46 @@
+.v-checkbox {
+    $chk-size: 20;
+    $ripple-extra-size: 10;
+    $ripple-size: calc($chk-size + $ripple-extra-size * 2);
+    .v-selection-control__input {
+        @apply bg-grey-50;
+        border-radius: 4px;
+        &::before {
+            top: calc($ripple-extra-size * -1 * 1px);
+            left: calc($ripple-extra-size * -1 * 1px);
+            right: calc($ripple-extra-size * -1 * 1px);
+            bottom: calc($ripple-extra-size * -1 * 1px);
+            width: auto;
+            height: auto;
+        }
+    }
+    .v-ripple__container {
+        top: calc($ripple-extra-size * -1 * 1px);
+        left: calc($ripple-extra-size * -1 * 1px);
+        width: calc($ripple-size * 1px) !important;
+        height: calc($ripple-size * 1px) !important;
+    }
+    .v-ripple__animation {
+        top: 4px !important;
+        left: 4px !important;
+        width: calc($ripple-size * 1px) !important;
+        height: calc($ripple-size * 1px) !important;
+    }
+    .v-selection-control--density-default {
+        --v-input-control-height: 0px;
+        --v-selection-control-size: #{calc($chk-size * 1px)};
+    }
+    .v-selection-control {
+        .v-label {
+            @apply text-heading-s-d;
+            font-size: rem(14);
+            padding-left: 8px;
+            color: #fff;
+            --v-medium-emphasis-opacity: 1;
+        }
+    }
+    .ds-ico-checkbox-check {
+        @apply text-blue-primary;
+        font-size: rem($chk-size);
+    }
+}

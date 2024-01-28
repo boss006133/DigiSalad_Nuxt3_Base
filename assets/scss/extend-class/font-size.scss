@@ -7,7 +7,7 @@
     $responsive: map-get($value, responsive);
     .#{$name} {
         @apply #{$desktop};
-        @screen max-lg {
+        @screen lt-lg {
             @apply #{$responsive};
         }
     }

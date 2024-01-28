@@ -1,0 +1,66 @@
+// scrollbar
+/* width */
+* {
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        border-radius: 99em;
+        @apply bg-blue-400;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        @apply bg-blue-500;
+    }
+}
+
+.nuxt-page {
+    width: 100%;
+    padding-bottom: 84px;
+    @include mediaMax('md') {
+        padding-bottom: 64px;
+    }
+}
+
+// global form
+$form-box: form-box;
+$form-col: form-col;
+$form-row-gap-h_pc: 24;
+$form-row-gap-h_mb: 16;
+$form-col-gap-h: 8;
+.form-warp {
+}
+.#{$form-box} {
+    margin-top: calc($form-row-gap-h_pc * -1px);
+    @include mediaMax('lg') {
+        margin-top: calc($form-row-gap-h_mb * -1px);
+    }
+}
+* + .#{$form-box} {
+    margin-top: calc($form-row-gap-h_pc * 1px);
+    @include mediaMax('lg') {
+        margin-top: calc($form-row-gap-h_mb * 1px);
+    }
+}
+
+.form-row {
+    margin-top: calc($form-row-gap-h_pc * 1px);
+    margin-left: calc($form-col-gap-h * 0.5 * -1px);
+    margin-right: calc($form-col-gap-h * 0.5 * -1px);
+    @include mediaMax('lg') {
+        margin-top: calc($form-row-gap-h_mb * 1px);
+    }
+}
+
+.#{$form-col} {
+    padding: 0 calc($form-col-gap-h * 0.5 * 1px);
+}

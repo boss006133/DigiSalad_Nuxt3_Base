@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  nuxt:
+    image: "<IMAGE_URL>/<IMAGE_NAME>:<IMAGE_TAG>"
+    ports:
+      - "80:80"
+    env_file:
+      - .env
+    environment:
+      - NODE_OPTIONS=--max-old-space-size=2048
+    deploy:
+      resources:
+        limits:
+          memory: 2G

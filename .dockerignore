@@ -1,0 +1,9 @@
+.git
+.gitignore
+.prettierrc
+bitbucket-pipelines.yml
+.bitbucket/
+.eb/
+.ebextensions/
+.platform/
+env/

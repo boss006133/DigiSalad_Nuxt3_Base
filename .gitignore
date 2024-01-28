@@ -22,3 +22,20 @@ logs
 .env
 .env.*
 !.env.example
+
+## docker
+Dockerfile
+Dockerfile.*
+docker-compose.yml
+
+## bitbucket
+# bitbucket-pipelines.yml
+!.bitbucket/Dockerfile.bitbucket
+# .bitbucket/
+
+## EB
+.elasticbeanstalk/
+!.eb/docker-compose.yml
+!.eb/
+
+## env

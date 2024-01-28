@@ -1,4 +1,4 @@
-import colors from '@/vender/tailwindcss/colors.json'
+import colors from '@/vender/unocss/colors.json'
 
 export const useColor = () => {
     const colorsObj = colors

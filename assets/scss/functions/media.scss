@@ -11,4 +11,10 @@
         @content;
     }
 }
+//在範圍內
+@mixin mediaMinMax($nameStart, $nameEnd) {
+    @media (min-width: map-get($media-query-list, $nameStart,'min')) and (max-width: map-get($media-query-list, $nameEnd,'max')) {
+        @content;
+    }
+}
 //#endregion

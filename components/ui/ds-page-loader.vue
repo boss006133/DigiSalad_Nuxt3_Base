@@ -3,11 +3,7 @@
     <div class="ds-page-loader" v-if="storeGlobal.pageLoading">
         <div class="ds-page-loader__bg"></div>
         <div class="spinner-outer">
-            <svg
-                class="spinner"
-                viewBox="0 0 66 66"
-                xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                 <circle
                     class="path"
                     fill="none"
@@ -20,7 +16,7 @@
         </div>
     </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { useGlobalStore } from '~/store'
 const storeGlobal = useGlobalStore()
 </script>
@@ -33,7 +29,7 @@ $duration: 1.4s;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 999;
+    z-index: 9101;
     &__bg {
         position: relative;
         top: 0;
@@ -61,7 +57,7 @@ $duration: 1.4s;
     height: 65px;
     animation: rotator $duration linear infinite;
 
-    @screen max-md {
+    @screen lt-md {
         width: 40px;
         height: 40px;
     }
@@ -71,8 +67,8 @@ $duration: 1.4s;
     stroke-dashoffset: 0;
     transform-origin: center;
     animation: dash $duration ease-in-out infinite;
-    stroke: #f9e693;
     stroke-width: 4px;
+    @apply stroke-blue-400;
 }
 @keyframes rotator {
     0% {

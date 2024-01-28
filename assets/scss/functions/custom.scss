@@ -1,0 +1,11 @@
+@mixin nuxt_lazyImageStyle {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    &.#{$nuxtLazyIsLoaded} {
+        opacity: 1;
+
+        &.#{$nuxtLazyFail} {
+            background-color: #f8f8f8;
+        }
+    }
+}

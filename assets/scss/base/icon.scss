@@ -1,0 +1,310 @@
+@font-face {
+    font-family: 'ico-digisalad';
+    src: url('~/assets/icon-fonts/ico-digisalad.eot?wextmz');
+    src: url('~/assets/icon-fonts/ico-digisalad.eot?wextmz#iefix') format('embedded-opentype'),
+        url('~/assets/icon-fonts/ico-digisalad.ttf?wextmz') format('truetype'),
+        url('~/assets/icon-fonts/ico-digisalad.woff?wextmz') format('woff'),
+        url('~/assets/icon-fonts/ico-digisalad.svg?wextmz#ico-digisalad') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^='ds-ico-'],
+[class*=' ds-ico-'] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'ico-digisalad' !important;
+    speak: never;
+    font-size: rem(24);
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: block;
+    // display: inline-block;
+    // &:before {
+    //     display: block;
+    // }
+}
+
+.ds-ico-account-filled:before {
+    content: '\e944';
+}
+.ds-ico-alert-filled:before {
+    content: '\e945';
+}
+.ds-ico-calendar-filled:before {
+    content: '\e946';
+}
+.ds-ico-chat-filled:before {
+    content: '\e947';
+}
+.ds-ico-cross-filled:before {
+    content: '\e948';
+}
+.ds-ico-dialogue-filled:before {
+    content: '\e949';
+}
+.ds-ico-email-filled:before {
+    content: '\e94a';
+}
+.ds-ico-fb-filled:before {
+    content: '\e94b';
+}
+.ds-ico-form-filled:before {
+    content: '\e94c';
+}
+.ds-ico-ig-filled:before {
+    content: '\e94d';
+}
+.ds-ico-linkedin-filled:before {
+    content: '\e94e';
+}
+.ds-ico-location-filled:before {
+    content: '\e94f';
+}
+.ds-ico-number-of-views-filled:before {
+    content: '\e950';
+}
+.ds-ico-packing-filled:before {
+    content: '\e951';
+}
+.ds-ico-phone-filled:before {
+    content: '\e952';
+}
+.ds-ico-shipped-filled:before {
+    content: '\e953';
+}
+.ds-ico-shipping-filled:before {
+    content: '\e954';
+}
+.ds-ico-star-filled:before {
+    content: '\e955';
+}
+.ds-ico-ticket-filled .path1:before {
+    content: '\e956';
+    color: rgb(9, 31, 64);
+}
+.ds-ico-ticket-filled .path2:before {
+    content: '\e957';
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+.ds-ico-tick-filled:before {
+    content: '\e958';
+}
+.ds-ico-time-filled:before {
+    content: '\e959';
+}
+.ds-ico-twitter-filled:before {
+    content: '\e95a';
+}
+.ds-ico-youtube-filled:before {
+    content: '\e95b';
+}
+.ds-ico-discount:before {
+    content: '\e900';
+}
+.ds-ico-receipt:before {
+    content: '\e901';
+}
+.ds-ico-refresh:before {
+    content: '\e902';
+}
+.ds-ico-account:before {
+    content: '\e903';
+}
+.ds-ico-alert:before {
+    content: '\e904';
+}
+.ds-ico-arrow-2-down:before {
+    content: '\e905';
+}
+.ds-ico-arrow-2-left:before {
+    content: '\e906';
+}
+.ds-ico-arrow-2-right:before {
+    content: '\e907';
+}
+.ds-ico-arrow-2-up:before {
+    content: '\e908';
+}
+.ds-ico-arrow-down:before {
+    content: '\e909';
+}
+.ds-ico-arrow-left:before {
+    content: '\e90a';
+}
+.ds-ico-arrow-right:before {
+    content: '\e90b';
+}
+.ds-ico-arrow-up:before {
+    content: '\e90c';
+}
+.ds-ico-bookmark:before {
+    content: '\e90d';
+}
+.ds-ico-calendar:before {
+    content: '\e90e';
+}
+.ds-ico-camera:before {
+    content: '\e90f';
+}
+.ds-ico-cart:before {
+    content: '\e910';
+}
+.ds-ico-chart:before {
+    content: '\e911';
+}
+.ds-ico-chatbot:before {
+    content: '\e912';
+}
+.ds-ico-checkbox-check:before {
+    content: '\e913';
+}
+.ds-ico-checkbox-unCheck:before {
+    content: '\e915';
+    color: #ebebeb;
+}
+.ds-ico-clock:before {
+    content: '\e916';
+}
+.ds-ico-close:before {
+    content: '\e917';
+}
+.ds-ico-contact-person:before {
+    content: '\e918';
+}
+.ds-ico-delete:before {
+    content: '\e919';
+}
+.ds-ico-distance:before {
+    content: '\e91a';
+}
+.ds-ico-download:before {
+    content: '\e91b';
+}
+.ds-ico-edit:before {
+    content: '\e91c';
+}
+.ds-ico-email:before {
+    content: '\e91d';
+}
+.ds-ico-fax:before {
+    content: '\e91e';
+}
+.ds-ico-filter:before {
+    content: '\e91f';
+}
+.ds-ico-gallery:before {
+    content: '\e920';
+}
+.ds-ico-hamburger-menu:before {
+    content: '\e921';
+}
+.ds-ico-hide:before {
+    content: '\e922';
+}
+.ds-ico-history:before {
+    content: '\e923';
+}
+.ds-ico-information:before {
+    content: '\e924';
+}
+.ds-ico-language:before {
+    content: '\e925';
+}
+.ds-ico-live:before {
+    content: '\e926';
+}
+.ds-ico-location:before {
+    content: '\e927';
+}
+.ds-ico-logout:before {
+    content: '\e928';
+}
+.ds-ico-minus:before {
+    content: '\e929';
+}
+.ds-ico-my-courses:before {
+    content: '\e92a';
+}
+.ds-ico-my-orders:before {
+    content: '\e92b';
+}
+.ds-ico-news:before {
+    content: '\e92c';
+}
+.ds-ico-notifcation:before {
+    content: '\e92d';
+}
+.ds-ico-payment:before {
+    content: '\e92e';
+}
+.ds-ico-phone:before {
+    content: '\e92f';
+}
+.ds-ico-plus:before {
+    content: '\e930';
+}
+.ds-ico-plus-small:before {
+    content: '\e931';
+}
+.ds-ico-scale:before {
+    content: '\e932';
+}
+.ds-ico-scan:before {
+    content: '\e933';
+}
+.ds-ico-search:before {
+    content: '\e934';
+}
+.ds-ico-settings:before {
+    content: '\e935';
+}
+.ds-ico-share:before {
+    content: '\e936';
+}
+.ds-ico-shopping:before {
+    content: '\e937';
+}
+.ds-ico-show:before {
+    content: '\e938';
+}
+.ds-ico-sort:before {
+    content: '\e939';
+}
+.ds-ico-star:before {
+    content: '\e93a';
+}
+.ds-ico-tick:before {
+    content: '\e93b';
+}
+.ds-ico-tooltip:before {
+    content: '\e93c';
+}
+.ds-ico-triangle:before {
+    content: '\e93d';
+}
+.ds-ico-upload:before {
+    content: '\e93e';
+}
+.ds-ico-videos:before {
+    content: '\e93f';
+}
+.ds-ico-view-360:before {
+    content: '\e940';
+}
+.ds-ico-wallet:before {
+    content: '\e941';
+}
+.ds-ico-warning:before {
+    content: '\e942';
+}
+.ds-ico-website:before {
+    content: '\e943';
+}

@@ -7,12 +7,15 @@
     </div>
 </template>
 <script lang="ts" setup>
+const { toggleWidgetsBlockComplete } = useWidgetsBlocksEvents()
 const localePath = useLocalePath()
 // 設定page meta
 useMetaHead({
     title: 'Home | DS Guide',
     description: 'DigiSalad Nuxt3 基本使用',
 })
+
+toggleWidgetsBlockComplete(true)
 </script>
 <style lang="scss">
 @import '@/assets/scss/page/home';

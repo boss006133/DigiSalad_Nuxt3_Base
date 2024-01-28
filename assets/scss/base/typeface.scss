@@ -1,93 +1,25 @@
-/* Proxima Nova */
-
-// @font-face {
-//     font-family: 'Proxima Nova';
-//     font-style: normal;
-//     font-weight: 300;
-//     font-display: optional;
-//     src: url('~/assets/fonts/ProximaNova-Light.otf') format('opentype');
-// }
-
-// @font-face {
-//     font-family: 'Proxima Nova';
-//     font-style: italic;
-//     font-weight: 300;
-//     font-display: optional;
-//     src: url('~/assets/fonts/ProximaNova-LightIt.otf') format('opentype');
-// }
-
+/* Avenir Next */
 @font-face {
-    font-family: 'Proxima Nova';
-    font-style: normal;
-    font-weight: 400;
-    src: url('~/assets/fonts/ProximaNova-Regular.otf') format('opentype');
-}
-
-// @font-face {
-//     font-family: 'Proxima Nova';
-//     font-style: italic;
-//     font-weight: 400;
-//     font-display: optional;
-//     src: url('~/assets/fonts/ProximaNova-RegularIt.otf') format('opentype');
-// }
-
-@font-face {
-    font-family: 'Proxima Nova';
-    font-style: normal;
+    font-family: 'Avenir Next';
     font-weight: 500;
-    src: url('~/assets/fonts/ProximaNova-Medium.otf') format('opentype');
+    src: url('~/assets/fonts/AvenirNext-Medium.ttf') format('truetype');
+    font-display: swap;
 }
-
-// @font-face {
-//     font-family: 'Proxima Nova';
-//     font-style: italic;
-//     font-weight: 500;
-//     font-display: optional;
-//     src: url('~/assets/fonts/ProximaNova-MediumIt.otf') format('opentype');
-// }
-
 @font-face {
-    font-family: 'Proxima Nova';
-    font-style: normal;
+    font-family: 'Avenir Next';
     font-weight: 600;
-    src: url('~/assets/fonts/ProximaNova-Semibold.otf') format('opentype');
+    src: url('~/assets/fonts/AvenirNext-DemiBold.ttf') format('truetype');
+    font-display: swap;
 }
-
-// @font-face {
-//     font-family: 'Proxima Nova';
-//     font-style: italic;
-//     font-weight: 600;
-//     font-display: optional;
-//     src: url('~/assets/fonts/ProximaNova-SemiboldIt.otf') format('opentype');
-// }
-
 @font-face {
-    font-family: 'Proxima Nova';
-    font-style: normal;
+    font-family: 'Avenir Next';
     font-weight: 700;
-    src: url('~/assets/fonts/ProximaNova-Bold.otf') format('opentype');
+    src: url('~/assets/fonts/AvenirNext-Bold.ttf') format('truetype');
+    font-display: swap;
 }
-
-// @font-face {
-//     font-family: 'Proxima Nova';
-//     font-style: italic;
-//     font-weight: 700;
-//     font-display: optional;
-//     src: url('~/assets/fonts/ProximaNova-BoldIt.otf') format('opentype');
-// }
-
-// @font-face {
-//     font-family: 'Proxima Nova';
-//     font-style: normal;
-//     font-weight: 800;
-//     font-display: optional;
-//     src: url('~/assets/fonts/ProximaNova-Extrabld.otf') format('opentype');
-// }
-
-// @font-face {
-//     font-family: 'Proxima Nova';
-//     font-style: italic;
-//     font-weight: 800;
-//     font-display: optional;
-//     src: url('~/assets/fonts/ProximaNova-ExtrabldIt.otf') format('opentype');
-// }
+@font-face {
+    font-family: 'LFT Etica Display';
+    font-weight: 400;
+    src: url('~/assets/fonts/LFTEticaDisplay-HeavyItalic.otf') format('opentype');
+    font-display: swap;
+}

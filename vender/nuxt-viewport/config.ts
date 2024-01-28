@@ -1,4 +1,4 @@
-import { screensDefault as breakpoints } from '../tailwindcss/screens'
+import { screensDefault as breakpoints } from '../unocss/screens'
 
 // 因為nuxt-viewport 只有isLessThan(<)的方法,並沒有(<=),所以在此將專案預設所有的breakpoints值都+1px
 Object.keys(breakpoints).forEach((key) => {
@@ -9,7 +9,7 @@ Object.keys(breakpoints).forEach((key) => {
 export default {
     breakpoints,
     defaultBreakpoints: {
-        desktop: '5xl',
+        desktop: '6xl',
         mobile: 'xs',
         tablet: 'md',
     },
