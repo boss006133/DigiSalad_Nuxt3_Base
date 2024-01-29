@@ -73,9 +73,10 @@ export default defineNuxtPlugin(() => {
 
                 // 如果點擊同一頁route, 直接執行locomotive start
                 if (
-                    from.name === to.name &&
-                    isOpenTransitionFinished.value &&
-                    pageWidgetsClientFinish.value
+                    (from.name === to.name &&
+                        isOpenTransitionFinished.value &&
+                        pageWidgetsClientFinish.value) ||
+                    disabledTransition
                 )
                     winLocoN && winLocoN.start()
             }, 100)

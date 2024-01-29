@@ -115,11 +115,13 @@ export const fetch =
                 //         storeUser[actionUser.SET_USER_ME](refreshResponse.value?.data.me)
                 //     }
                 //     // if refresh token api error, refetch guest token
-                //     if (refreshError) {
+                //     if (refreshError.value) {
                 //         if (storeUser.me?.type === 'user') {
                 //             // if current me type is user, then logout
                 //             await navigateTo(localePath('/login'))
-                //             storeUser[actionUser.USER_LOGOUT](nuxtApp)
+                //             await nuxtApp.runWithContext(() =>
+                //                 storeUser[actionUser.USER_LOGOUT](nuxtApp),
+                //             )
                 //         }
                 //         await storeUser[actionUser.RENEW_GUEST_TOKEN](nuxtApp)
                 //     }

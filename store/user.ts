@@ -22,25 +22,27 @@ export const useUserStore = defineStore('user', {
         //     const guestToken = useCookie(COOKIE_GUEST_TOKEN)
         //     return state.guestToken || guestToken.value
         // },
+        // /** 是否存在user info */
+        // isUserMe: (state): boolean => state.me?.type === 'user',
         // /** 是否為登入狀態 */
         // isUser(state): boolean {
-        //     const _this = this
-        //     // return (
-        //     //     state.me?.type === 'user' &&
-        //     //     typeof _this.getUserToken === 'string' &&
-        //     //     _this.getUserToken !== ''
-        //     // )
-        //     return state.me?.type === 'user'
+        //     const self = this
+        //     return (
+        //         state.me?.type === 'user' &&
+        //         typeof self.getUserToken === 'string' &&
+        //         self.getUserToken !== ''
+        //     )
         // },
+        // /** 登入後的問候文字 */
         // greetWord: (state): IMsgTranslation[] => {
         //     let r = [
         //         {
         //             locale: 'en',
-        //             message: `Hi ${state.me?.personal_info.last_name}`,
+        //             message: `Hi ${state.me?.personal_info.first_name}`,
         //         },
         //         {
         //             locale: 'zh-hk',
-        //             message: `Hi ${state.me?.personal_info.last_name}`,
+        //             message: `Hi ${state.me?.personal_info.first_name}`,
         //         },
         //     ]
         //     return r
@@ -88,7 +90,7 @@ export const useUserStore = defineStore('user', {
         //     const self = this
         //     self.me = value
         // },
-        // async userLogin({ payload, nuxtApp }: { payload: IAuthEmailLoginReq; nuxtApp: NuxtApp }) {
+        // async [actionUser.USER_LOGIN]({ payload, nuxtApp }: { payload: IAuthEmailLoginReq; nuxtApp: NuxtApp }) {
         //     const self = this
         //     const res = await nuxtApp.runWithContext(() =>
         //         useApi.auth.email.login({
