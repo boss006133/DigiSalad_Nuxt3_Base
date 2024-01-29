@@ -1,3 +1,3 @@
-export const action = {
-    SET_POPUP_NAV_STATE: 'setPopupNavState',
+export enum action {
+    SET_POPUP_NAV_STATE = 'setPopupNavState',
 }
